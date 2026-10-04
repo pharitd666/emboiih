@@ -1,0 +1,652 @@
+<div class="amber-site">
+
+<style>
+.amber-site{
+  --bg:#080808;
+  --bg2:#101010;
+  --card:#151515;
+  --amber:#f2a900;
+  --amber2:#ffc247;
+  --text:#f7f7f7;
+  --muted:#a7a7a7;
+  --line:rgba(255,255,255,.12);
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  overflow:hidden;
+}
+.amber-site *{box-sizing:border-box}
+.amber-site a{text-decoration:none;color:inherit}
+.amber-container{width:min(1180px,90%);margin:auto}
+.amber-kicker{
+  color:var(--amber);font-size:12px;font-weight:800;
+  letter-spacing:4px;text-transform:uppercase;margin-bottom:16px
+}
+.amber-title{
+  font-size:clamp(38px,6vw,76px);line-height:.95;
+  letter-spacing:-3px;margin:0;font-weight:900
+}
+.amber-copy{color:var(--muted);line-height:1.85;font-size:16px}
+.amber-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:16px 26px;border:1px solid var(--amber);
+  background:var(--amber);color:#090909!important;
+  font-weight:900;font-size:12px;letter-spacing:2px;
+  transition:.3s
+}
+.amber-btn:hover{background:transparent;color:var(--amber)!important;transform:translateY(-3px)}
+.amber-btn.alt{background:transparent;color:#fff!important;border-color:#555}
+.amber-btn.alt:hover{border-color:var(--amber);color:var(--amber)!important}
+
+/* NAV */
+.amber-nav{
+  position:absolute;top:0;left:0;width:100%;z-index:20;
+  padding:25px 0;border-bottom:1px solid rgba(255,255,255,.1)
+}
+.amber-nav-inner{display:flex;align-items:center;justify-content:space-between}
+.amber-logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px;letter-spacing:2px}
+.amber-logo img{height:28px;width:auto;object-fit:contain}
+.amber-logo span{color:var(--amber)}
+.amber-menu{display:flex;gap:30px;font-size:11px;font-weight:800;letter-spacing:2px}
+.amber-menu a:hover{color:var(--amber)}
+
+/* HERO */
+.amber-hero{
+  min-height:100vh;display:flex;align-items:center;position:relative;
+  background:
+   linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.52)),
+   radial-gradient(circle at 78% 40%,rgba(242,169,0,.28),transparent 30%),
+   url('https://amberevent.odoo.com/web/image/985-dc1afe18/Gemini_Generated_Image_rjyxbprjyxbprjyx.webp') center/cover no-repeat,
+   #080808;
+}
+.amber-hero:after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(transparent 94%,rgba(242,169,0,.18));
+  pointer-events:none
+}
+.amber-hero-content{position:relative;z-index:2;padding-top:100px;max-width:900px}
+.amber-hero h1{
+  font-size:clamp(55px,9vw,125px);line-height:.82;
+  margin:0;font-weight:950;letter-spacing:-7px
+}
+.amber-hero h1 span{
+  display:block;color:transparent;
+  -webkit-text-stroke:1px var(--amber)
+}
+.amber-hero p{max-width:630px;margin:30px 0;color:#bbb;font-size:17px;line-height:1.7}
+.amber-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+/* MARQUEE */
+.amber-marquee{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  overflow:hidden;background:#0b0b0b
+}
+.amber-track{
+  white-space:nowrap;padding:20px 0;
+  animation:amberMove 18s linear infinite;
+  font-size:13px;font-weight:900;letter-spacing:4px
+}
+.amber-track span{color:var(--amber);margin:0 25px}
+@keyframes amberMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ABOUT */
+.amber-about{padding:130px 0}
+.amber-about-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.amber-visual{
+  min-height:520px;position:relative;border:1px solid var(--line);overflow:hidden;
+  background:
+   linear-gradient(135deg,transparent,rgba(242,169,0,.2)),
+   radial-gradient(circle at center,#252525,#0b0b0b 70%);
+}
+.amber-visual img{
+  width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:.85;
+  transition:.5s;
+}
+.amber-visual:hover img{transform:scale(1.03)}
+.amber-visual:before{
+  content:"AMBER";position:absolute;bottom:30px;left:25px;z-index:2;
+  font-size:80px;font-weight:900;color:rgba(255,255,255,.08);pointer-events:none
+}
+.amber-visual-box{
+  position:absolute;right:-25px;bottom:35px;background:var(--amber);
+  color:#080808;padding:25px;width:210px;z-index:3
+}
+.amber-visual-box strong{font-size:42px;display:block}
+.amber-about h2{font-size:clamp(36px,5vw,65px);line-height:1;margin:0 0 30px}
+.amber-about h2 span{color:var(--amber)}
+
+/* SERVICES */
+.amber-services{padding:120px 0;background:var(--bg2)}
+.amber-section-head{display:flex;justify-content:space-between;gap:50px;align-items:end;margin-bottom:55px}
+.amber-section-head p{max-width:450px}
+.amber-service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+.amber-card{
+  background:#101010;padding:45px 35px;min-height:310px;
+  position:relative;transition:.35s
+}
+.amber-card:hover{background:#181818;transform:translateY(-7px)}
+.amber-number{color:var(--amber);font-size:12px;font-weight:900;letter-spacing:2px}
+.amber-card h3{font-size:27px;margin:60px 0 18px}
+.amber-arrow{
+  position:absolute;right:30px;bottom:25px;color:var(--amber);
+  font-size:30px;transition:.3s
+}
+.amber-card:hover .amber-arrow{transform:translateX(8px)}
+
+/* STATS */
+.amber-stats{padding:80px 0;border-bottom:1px solid var(--line)}
+.amber-stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.amber-stat{padding:30px;border-right:1px solid var(--line)}
+.amber-stat:last-child{border:0}
+.amber-stat strong{display:block;font-size:55px;color:var(--amber)}
+.amber-stat span{font-size:11px;letter-spacing:2px;color:#aaa}
+
+/* PORTFOLIO */
+.amber-work{padding:130px 0}
+.amber-work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:25px}
+.amber-project{
+  height:440px;border:1px solid var(--line);position:relative;overflow:hidden;
+  background:radial-gradient(circle at 50% 50%,#282828,#0c0c0c 70%)
+}
+.amber-project img{
+  width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:.85;
+  transition:.5s;
+}
+.amber-project:hover img{transform:scale(1.03)}
+.amber-project-info{
+  position:absolute;left:0;bottom:0;width:100%;padding:30px;z-index:2;
+  background:linear-gradient(transparent,rgba(0,0,0,.95))
+}
+.amber-project-info small{color:var(--amber);letter-spacing:2px}
+.amber-project-info h3{font-size:28px;margin:8px 0}
+
+/* LEADERS */
+.amber-leaders{padding:120px 0;background:#0e0e0e}
+.amber-leader-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:55px}
+.amber-person{border:1px solid var(--line);background:#101010;overflow:hidden}
+.amber-person-photo{
+  height:380px;background:linear-gradient(145deg,#252525,#0a0a0a);
+  position:relative;overflow:hidden;
+}
+.amber-person-photo img{
+  width:100%;height:100%;object-fit:cover;object-position:top;
+  transition:.4s;
+}
+.amber-person:hover .amber-person-photo img{transform:scale(1.05)}
+.amber-person-info{padding:25px}
+.amber-person-info h3{margin:0 0 8px;font-size:21px}
+.amber-person-info span{color:var(--amber);font-size:10px;letter-spacing:2px}
+.amber-person-quote{color:#aaa;font-size:13px;font-style:italic;margin-top:12px;line-height:1.5;margin-bottom:0;}
+
+/* CTA */
+.amber-cta{
+  padding:150px 0;text-align:center;position:relative;
+  background:radial-gradient(circle,rgba(242,169,0,.2),transparent 50%),#080808
+}
+.amber-cta h2{
+  font-size:clamp(50px,8vw,105px);line-height:.9;
+  margin:0 auto 40px;max-width:1000px;letter-spacing:-5px
+}
+.amber-cta h2 span{color:var(--amber)}
+
+/* FOOTER */
+.amber-footer{padding:70px 0 30px;border-top:1px solid var(--line)}
+.amber-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px}
+.amber-footer .amber-logo img{height:24px}
+.amber-footer h3{font-size:27px}
+.amber-footer h4{font-size:11px;color:var(--amber);letter-spacing:3px}
+.amber-footer p,.amber-footer a{color:#999;line-height:1.9;font-size:14px}
+.amber-footer a:hover{color:var(--amber)}
+.amber-bottom{
+  margin-top:60px;padding-top:25px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;color:#666;font-size:11px
+}
+
+/* REVEAL */
+.amber-reveal{opacity:0;transform:translateY(35px);transition:.8s ease}
+.amber-reveal.visible{opacity:1;transform:none}
+
+/* MOBILE */
+@media(max-width:850px){
+ .amber-menu{display:none}
+ .amber-about-grid,.amber-service-grid,.amber-work-grid,
+ .amber-leader-grid,.amber-footer-grid{grid-template-columns:1fr}
+ .amber-section-head{display:block}
+ .amber-stats-grid{grid-template-columns:1fr 1fr}
+ .amber-stat{border-bottom:1px solid var(--line)}
+ .amber-visual{min-height:390px}
+ .amber-visual-box{right:10px}
+ .amber-hero h1{letter-spacing:-4px}
+}
+</style>
+
+<!-- NAVIGATION -->
+<nav class="amber-nav">
+ <div class="amber-container amber-nav-inner">
+   <div class="amber-logo">
+     <img src="https://amberevent.odoo.com/web/image/986-bc0e69fd/1784999568412.jpg" alt="Amber Logo">
+     AMBER<span>.</span>
+   </div>
+   <div class="amber-menu">
+     <a href="#about">ABOUT</a>
+     <a href="#services">SERVICES</a>
+     <a href="#work">OUR WORK</a>
+     <a href="#leaders">LEADERS</a>
+     <a href="#contact">CONTACT</a>
+   </div>
+ </div>
+</nav>
+
+<!-- HERO -->
+<section class="amber-hero">
+ <div class="amber-container">
+   <div class="amber-hero-content">
+     <div class="amber-kicker">EVENT PRODUCTION • INDONESIA</div>
+
+     <h1>
+       WE LIGHT UP
+       <span>THE STAGE.</span>
+     </h1>
+
+     <p>
+       Kami mengubah ide menjadi pengalaman yang hidup.
+       Dari panggung, cahaya, suara, hingga detail eksekusi,
+       Amber Event Production hadir untuk menciptakan momen
+       yang tidak hanya terlihat — tetapi terasa.
+     </p>
+
+     <div class="amber-actions">
+       <a href="#work" class="amber-btn">EXPLORE OUR WORK →</a>
+       <a href="#contact" class="amber-btn alt">LET'S TALK</a>
+     </div>
+   </div>
+ </div>
+</section>
+
+<!-- MOVING TEXT -->
+<div class="amber-marquee">
+ <div class="amber-track">
+ CORPORATE EVENTS <span>✦</span>
+ CONCERT & FESTIVAL <span>✦</span>
+ BRAND ACTIVATION <span>✦</span>
+ EXHIBITION <span>✦</span>
+ STAGE PRODUCTION <span>✦</span>
+ LIGHTING <span>✦</span>
+ SOUND SYSTEM <span>✦</span>
+ CORPORATE EVENTS <span>✦</span>
+ CONCERT & FESTIVAL <span>✦</span>
+ BRAND ACTIVATION <span>✦</span>
+ EXHIBITION
+ </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="amber-about">
+ <div class="amber-container amber-about-grid">
+
+  <div class="amber-visual amber-reveal">
+    <img src="https://amberevent.odoo.com/web/image/960-90a49542/IMG_20260730_145447.webp" alt="Amber 360 Event Production">
+    <div class="amber-visual-box">
+      <strong>360°</strong>
+      EVENT
+      PRODUCTION
+    </div>
+  </div>
+
+  <div class="amber-reveal">
+   <div class="amber-kicker">WHO WE ARE</div>
+
+   <h2>
+     BUKAN SEKADAR
+     EVENT ORGANIZER.
+     <span>KAMI ARSITEK PENGALAMAN.</span>
+   </h2>
+
+   <p class="amber-copy">
+     Setiap event memiliki cerita.
+     Tugas kami adalah membuat cerita tersebut hadir secara nyata.
+
+     Dengan pendekatan kreatif, teknis, dan terukur,
+     Amber Event Production menggabungkan konsep,
+     tata panggung, tata cahaya, tata suara,
+     produksi, serta manajemen lapangan menjadi
+     satu pengalaman yang utuh.
+   </p>
+
+  </div>
+ </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="amber-services">
+ <div class="amber-container">
+
+  <div class="amber-section-head amber-reveal">
+   <div>
+    <div class="amber-kicker">OUR EXPERTISE</div>
+    <h2 class="amber-title">WHAT<br>WE DO.</h2>
+   </div>
+
+   <p class="amber-copy">
+    Dari ide pertama hingga lampu terakhir dimatikan,
+    kami menangani setiap detail untuk memastikan
+    acara berjalan dengan presisi.
+   </p>
+  </div>
+
+  <div class="amber-service-grid">
+
+   <div class="amber-card amber-reveal">
+    <span class="amber-number">01</span>
+    <h3>CORPORATE EVENT</h3>
+    <p class="amber-copy">
+     Conference, seminar, gathering,
+     launching dan corporate celebration.
+    </p>
+    <span class="amber-arrow">→</span>
+   </div>
+
+   <div class="amber-card amber-reveal">
+    <span class="amber-number">02</span>
+    <h3>CONCERT & FESTIVAL</h3>
+    <p class="amber-copy">
+     Produksi panggung, rigging,
+     lighting dan audio untuk pertunjukan berskala besar.
+    </p>
+    <span class="amber-arrow">→</span>
+   </div>
+
+   <div class="amber-card amber-reveal">
+    <span class="amber-number">03</span>
+    <h3>EXHIBITION</h3>
+    <p class="amber-copy">
+     Desain dan produksi exhibition
+     yang memperkuat kehadiran brand.
+    </p>
+    <span class="amber-arrow">→</span>
+   </div>
+
+   <div class="amber-card amber-reveal">
+    <span class="amber-number">04</span>
+    <h3>BRAND ACTIVATION</h3>
+    <p class="amber-copy">
+     Aktivasi kreatif untuk mempertemukan
+     brand dengan audiens secara langsung.
+    </p>
+    <span class="amber-arrow">→</span>
+   </div>
+
+   <div class="amber-card amber-reveal">
+    <span class="amber-number">05</span>
+    <h3>STAGE PRODUCTION</h3>
+    <p class="amber-copy">
+     Konsep, konstruksi dan technical
+     production dengan standar profesional.
+    </p>
+    <span class="amber-arrow">→</span>
+   </div>
+
+   <div class="amber-card amber-reveal">
+    <span class="amber-number">06</span>
+    <h3>CREATIVE PRODUCTION</h3>
+    <p class="amber-copy">
+     Mengubah konsep kreatif menjadi
+     pengalaman visual yang memorable.
+    </p>
+    <span class="amber-arrow">→</span>
+   </div>
+
+  </div>
+ </div>
+</section>
+
+<!-- STATS -->
+<section class="amber-stats">
+ <div class="amber-container amber-stats-grid">
+
+  <div class="amber-stat">
+   <strong class="counter" data-target="100">0</strong>
+   <span>PROJECTS DELIVERED</span>
+  </div>
+
+  <div class="amber-stat">
+   <strong class="counter" data-target="50">0</strong>
+   <span>CLIENTS</span>
+  </div>
+
+  <div class="amber-stat">
+   <strong class="counter" data-target="25">0</strong>
+   <span>CREATIVE CREW</span>
+  </div>
+
+  <div class="amber-stat">
+   <strong>24/7</strong>
+   <span>PRODUCTION SUPPORT</span>
+  </div>
+
+ </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="work" class="amber-work">
+ <div class="amber-container">
+
+  <div class="amber-kicker">SELECTED PROJECTS</div>
+  <h2 class="amber-title" style="margin-bottom:55px">
+    OUR<br>WORK.
+  </h2>
+
+  <div class="amber-work-grid">
+
+   <div class="amber-project amber-reveal">
+    <img src="https://amberevent.odoo.com/web/image/954-45ce3763/Pi7_Tool_18ba26812cfa419fa139e5a6f44d10b6.webp" alt="Corporate Experience">
+    <div class="amber-project-info">
+     <small>CORPORATE EVENT</small>
+     <h3>Corporate Experience</h3>
+    </div>
+   </div>
+
+   <div class="amber-project amber-reveal">
+    <img src="https://amberevent.odoo.com/web/image/961-3d8ad7f8/Pi7_Tool_1783811824185.webp" alt="Concert & Festival">
+    <div class="amber-project-info">
+     <small>LIVE PRODUCTION</small>
+     <h3>Concert & Festival</h3>
+    </div>
+   </div>
+
+   <div class="amber-project amber-reveal">
+    <img src="https://amberevent.odoo.com/web/image/957-2515ad71/1783811733066.jpg" alt="Brand Activation">
+    <div class="amber-project-info">
+     <small>BRAND EXPERIENCE</small>
+     <h3>Brand Activation</h3>
+    </div>
+   </div>
+
+   <div class="amber-project amber-reveal">
+    <img src="https://amberevent.odoo.com/web/image/952-9d3e4576/Pi7_Tool_0c2f9290784071.5e204821d7200-dikonversi-dari-webp.webp" alt="Exhibition Experience">
+    <div class="amber-project-info">
+     <small>EXHIBITION</small>
+     <h3>Exhibition Experience</h3>
+    </div>
+   </div>
+
+  </div>
+ </div>
+</section>
+
+<!-- LEADERS -->
+<section id="leaders" class="amber-leaders">
+ <div class="amber-container">
+
+  <div class="amber-kicker">THE PEOPLE BEHIND AMBER</div>
+  <h2 class="amber-title">THE<br>LEADERS.</h2>
+
+  <div class="amber-leader-grid">
+
+   <div class="amber-person amber-reveal">
+    <div class="amber-person-photo">
+     <img src="https://amberevent.odoo.com/web/image/940-d5ee056f/Pi7_Tool_IMG_20230225_144650.webp" alt="Ahmad FS - Founder">
+    </div>
+    <div class="amber-person-info">
+     <h3>AHMAD FS</h3>
+     <span>FOUNDER</span>
+     <p class="amber-person-quote">"Good things take time"</p>
+    </div>
+   </div>
+
+   <div class="amber-person amber-reveal">
+    <div class="amber-person-photo">
+     <img src="https://amberevent.odoo.com/web/image/987-0df920db/Pi7_Tool_IMG-20260710-WA0015%20%282%29.webp" alt="Saifudin Soleh - Operations Director">
+    </div>
+    <div class="amber-person-info">
+     <h3>SAIFUDIN SOLEH</h3>
+     <span>OPERATIONS DIRECTOR</span>
+     <p class="amber-person-quote">"Everything will be okay"</p>
+    </div>
+   </div>
+
+   <div class="amber-person amber-reveal">
+    <div class="amber-person-photo">
+     <img src="https://amberevent.odoo.com/web/image/945-d508d30e/Pi7_Tool_IMG-20260712-WA0022%20%281%29.webp" alt="Reiza J. Putra - Technical Director">
+    </div>
+    <div class="amber-person-info">
+     <h3>REIZA J. PUTRA</h3>
+     <span>TECHNICAL DIRECTOR</span>
+     <p class="amber-person-quote">"I'm not so poetic, I'm not ISO, I play pearls of wisdom, it's nice to have a satset watwet"</p>
+    </div>
+   </div>
+
+  </div>
+ </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="amber-cta">
+ <div class="amber-container">
+
+  <div class="amber-kicker">START A PROJECT</div>
+
+  <h2>
+    LET'S BUILD
+    SOMETHING
+    <span>UNFORGETTABLE.</span>
+  </h2>
+
+  <a href="mailto:amber.eventroduction@gmail.com"
+     class="amber-btn">
+      LET'S TALK →
+  </a>
+
+ </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="amber-footer">
+ <div class="amber-container">
+
+  <div class="amber-footer-grid">
+
+   <div>
+    <div class="amber-logo">
+     <img src="https://amberevent.odoo.com/web/image/986-bc0e69fd/1784999568412.jpg" alt="Amber Logo">
+     AMBER<span>.</span>
+    </div>
+
+    <p style="max-width:400px;margin-top:15px">
+     Professional Event Production Agency
+     delivering exceptional staging,
+     lighting, sound and event experiences.
+    </p>
+   </div>
+
+   <div>
+    <h4>CONTACT</h4>
+    <p>
+     amber.eventroduction@gmail.com<br>
+     +62 856 8088 959
+    </p>
+   </div>
+
+   <div>
+    <h4>FOLLOW</h4>
+    <p>
+     <a href="https://www.instagram.com/amber.event.pro?igsh=ZDY1Zmh2bmJjN2R0" target="_blank" rel="noopener">Instagram</a><br>
+     LinkedIn
+    </p>
+   </div>
+
+  </div>
+
+  <div class="amber-bottom">
+   <span>© 2026 AMBER EVENT PRODUCTION</span>
+   <span>INDONESIA</span>
+  </div>
+
+ </div>
+</footer>
+
+<script>
+(function(){
+
+/* Smooth scroll */
+document.querySelectorAll('.amber-site a[href^="#"]').forEach(function(link){
+ link.addEventListener('click',function(e){
+  var target=document.querySelector(this.getAttribute('href'));
+  if(target){
+   e.preventDefault();
+   target.scrollIntoView({behavior:'smooth'});
+  }
+ });
+});
+
+/* Reveal animation */
+var revealObserver=new IntersectionObserver(function(entries){
+ entries.forEach(function(entry){
+  if(entry.isIntersecting){
+   entry.target.classList.add('visible');
+  }
+ });
+},{threshold:.12});
+
+document.querySelectorAll('.amber-reveal').forEach(function(el){
+ revealObserver.observe(el);
+});
+
+/* Counter animation */
+var counters=document.querySelectorAll('.counter');
+
+var counterObserver=new IntersectionObserver(function(entries){
+ entries.forEach(function(entry){
+
+  if(!entry.isIntersecting) return;
+
+  var el=entry.target;
+  var target=parseInt(el.dataset.target);
+  var current=0;
+  var step=Math.max(1,Math.ceil(target/50));
+
+  var timer=setInterval(function(){
+   current+=step;
+
+   if(current>=target){
+    current=target;
+    clearInterval(timer);
+   }
+
+   el.textContent=current+"+";
+
+  },30);
+
+  counterObserver.unobserve(el);
+
+ });
+},{threshold:.5});
+
+counters.forEach(function(counter){
+ counterObserver.observe(counter);
+});
+
+})();
+</script>
+
+</div>
