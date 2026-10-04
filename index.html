@@ -1,1346 +1,902 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PT Amber Event Production - Event Organizer & Brand Activation</title>
-    <meta name="description" content="PT Amber Event Production - Professional Event Organizer, Brand Activation, MICE, and Merchandise Production in Malang, Indonesia">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --amber-primary: #E85D3A;
-            --amber-secondary: #F47F5F;
-            --amber-dark: #C44528;
-            --black: #0a0a0a;
-            --gray: #1a1a1a;
-            --light-gray: #2a2a2a;
-            --white: #ffffff;
-            --text-gray: #b0b0b0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: var(--black);
-            color: var(--white);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 5%;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            box-shadow: 0 2px 20px rgba(232, 93, 58, 0.3);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo img {
-            height: 50px;
-            width: auto;
-        }
-
-        .logo-text {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--white);
-        }
-
-        .logo-text span {
-            color: var(--amber-primary);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--amber-primary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: var(--amber-primary);
-        }
-
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 70px;
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--black) 0%, var(--gray) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(232, 93, 58, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            text-align: center;
-            z-index: 1;
-            padding: 2rem;
-            max-width: 1000px;
-        }
-
-        .hero-logo {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 2rem;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--amber-primary) 0%, var(--amber-secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero h2 {
-            font-size: 1.8rem;
-            color: var(--text-gray);
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-gray);
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.6s both;
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 50px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--amber-primary) 0%, var(--amber-dark) 100%);
-            color: var(--white);
-            box-shadow: 0 4px 15px rgba(232, 93, 58, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(232, 93, 58, 0.6);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--amber-primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--amber-primary);
-            transform: translateY(-3px);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--white);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--amber-primary), var(--amber-secondary));
-            border-radius: 2px;
-        }
-
-        .section-title p {
-            color: var(--text-gray);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 1.5rem auto 0;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--gray);
-            position: relative;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(232, 93, 58, 0.3);
-        }
-
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--amber-primary);
-        }
-
-        .about-text p {
-            color: var(--text-gray);
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-
-        .values {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .value-item {
-            display: flex;
-            align-items: start;
-            gap: 1rem;
-        }
-
-        .value-item i {
-            font-size: 1.5rem;
-            color: var(--amber-primary);
-            margin-top: 0.2rem;
-        }
-
-        .value-item h4 {
-            font-size: 1rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .value-item p {
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: var(--gray);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid var(--light-gray);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--amber-primary), var(--amber-secondary));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--amber-primary);
-            box-shadow: 0 10px 40px rgba(232, 93, 58, 0.2);
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--amber-primary), var(--amber-dark));
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            color: var(--text-gray);
-            line-height: 1.7;
-        }
-
-        .service-list {
-            list-style: none;
-            margin-top: 1.5rem;
-        }
-
-        .service-list li {
-            padding: 0.5rem 0;
-            color: var(--text-gray);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .service-list li i {
-            color: var(--amber-primary);
-            font-size: 0.8rem;
-        }
-
-        /* Portfolio Section */
-        .portfolio {
-            background: var(--gray);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .portfolio-card {
-            background: var(--black);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid var(--light-gray);
-            transition: all 0.3s ease;
-        }
-
-        .portfolio-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 50px rgba(232, 93, 58, 0.3);
-        }
-
-        .portfolio-image {
-            height: 250px;
-            background: linear-gradient(135deg, var(--amber-primary), var(--amber-dark));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .portfolio-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 70%);
-        }
-
-        .portfolio-content {
-            padding: 2rem;
-        }
-
-        .portfolio-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--amber-primary);
-        }
-
-        .portfolio-content p {
-            color: var(--text-gray);
-            line-height: 1.7;
-        }
-
-        .portfolio-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-
-        .tag {
-            background: var(--light-gray);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: var(--amber-secondary);
-        }
-
-        /* Clients Section */
-        .clients-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .client-item {
-            background: var(--gray);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid var(--light-gray);
-            transition: all 0.3s ease;
-        }
-
-        .client-item:hover {
-            border-color: var(--amber-primary);
-            transform: translateY(-5px);
-        }
-
-        .client-item i {
-            font-size: 3rem;
-            color: var(--amber-primary);
-            margin-bottom: 1rem;
-        }
-
-        .client-item h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .client-item p {
-            font-size: 0.9rem;
-            color: var(--text-gray);
-        }
-
-        /* Legal Section */
-        .legal {
-            background: var(--gray);
-        }
-
-        .legal-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .legal-card {
-            background: var(--black);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid var(--light-gray);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .legal-card:hover {
-            border-color: var(--amber-primary);
-            transform: translateY(-5px);
-        }
-
-        .legal-card i {
-            font-size: 2.5rem;
-            color: var(--amber-primary);
-            margin-bottom: 1rem;
-        }
-
-        .legal-card h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .legal-card p {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-        }
-
-        .legal-card strong {
-            color: var(--white);
-            display: block;
-            margin-top: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        /* Contact Section */
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-info > p {
-            color: var(--text-gray);
-            margin-bottom: 2rem;
-        }
-
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: start;
-            gap: 1rem;
-        }
-
-        .contact-item i {
-            font-size: 1.5rem;
-            color: var(--amber-primary);
-            margin-top: 0.3rem;
-        }
-
-        .contact-item h4 {
-            margin-bottom: 0.3rem;
-        }
-
-        .contact-item p {
-            color: var(--text-gray);
-        }
-
-        .contact-form {
-            background: var(--gray);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid var(--light-gray);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            background: var(--black);
-            border: 1px solid var(--light-gray);
-            border-radius: 10px;
-            color: var(--white);
-            font-family: 'Open Sans', sans-serif;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--amber-primary);
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--black);
-            border-top: 1px solid var(--light-gray);
-            padding: 3rem 5% 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            margin-bottom: 2rem;
-        }
-
-        .footer-logo img {
-            height: 80px;
-            width: auto;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .social-links a {
-            width: 50px;
-            height: 50px;
-            background: var(--gray);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.3rem;
-            transition: all 0.3s ease;
-            border: 1px solid var(--light-gray);
-        }
-
-        .social-links a:hover {
-            background: var(--amber-primary);
-            transform: translateY(-5px);
-            border-color: var(--amber-primary);
-        }
-
-        .footer-bottom {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--light-gray);
-            color: var(--text-gray);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: block;
-                color: var(--white);
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero h2 {
-                font-size: 1.3rem;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .values {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 3rem 5%;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-
-            .services-grid,
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amber Event Production — Event Organizer & Planner, Malang</title>
+<meta name="description" content="PT Amber Event Production — Event Production, Brand Activation, MICE, Manpower, Booth & Backdrop, serta Merchandise Production. Berbasis di Malang, Jawa Timur.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%23ff6900'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS — palette & typography extracted from source
+   ============================================================ */
+:root{
+  --color-bg:        #f9f7f5;
+  --color-white:     #ffffff;
+  --color-ink:       #000000;
+  --color-body:      #32373c;
+  --color-muted:     #abb8c3;
+  --color-accent:    #0693e3;   /* rgba(6,147,227,1) */
+  --color-cyan:      #8ed1fc;
+  --color-green:     #00d084;
+  --color-teal:      #7bdcb5;
+  --color-orange:    #ff6900;
+  --color-yellow:    #fcb900;
+  --color-red:       #cf2e2e;
+  --color-pink:      #f78da7;
+  --color-purple:    #9b51e0;
+  --color-line:      rgb(238,238,238);
+
+  --font-primary: 'Poppins', Sans-serif;
+  --radius: 20px;
+  --shadow-card: 0 20px 44px rgba(50,55,60,.07);
+  --transition: all .35s cubic-bezier(.25,.7,.3,1);
+  --container: 1240px;
+}
+
+/* ============ RESET / BASE ============ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font-primary);
+  background:var(--color-bg);
+  color:var(--color-body);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+button,input{font-family:inherit;}
+.container{max-width:var(--container);margin:0 auto;padding:0 24px;}
+section{padding:110px 0;}
+
+/* section headings */
+.eyebrow{
+  display:inline-block;font-size:13px;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--color-accent);margin-bottom:18px;
+}
+.section-title{
+  font-size:clamp(34px,4.6vw,58px);font-weight:700;color:var(--color-ink);
+  line-height:1.12;letter-spacing:-.02em;
+}
+.section-title .dot{color:var(--color-orange);}
+.section-lead{max-width:640px;margin-top:22px;font-size:17px;color:#5a6169;}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 32px;border-radius:100px;font-size:15px;font-weight:600;
+  transition:var(--transition);cursor:pointer;border:2px solid transparent;
+}
+.btn-dark{background:var(--color-ink);color:var(--color-white);}
+.btn-dark:hover{background:var(--color-accent);transform:translateY(-3px);}
+.btn-outline{border-color:var(--color-ink);color:var(--color-ink);background:transparent;}
+.btn-outline:hover{background:var(--color-ink);color:var(--color-white);transform:translateY(-3px);}
+.btn-accent{background:var(--color-accent);color:var(--color-white);}
+.btn-accent:hover{background:var(--color-ink);transform:translateY(-3px);}
+.btn .arr{transition:transform .3s;}
+.btn:hover .arr{transform:translateX(5px);}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}
+.reveal.d3{transition-delay:.3s}.reveal.d4{transition-delay:.4s}
+.reveal.d5{transition-delay:.5s}
+
+/* ============================================================
+   COMPONENT: SiteHeader
+   ============================================================ */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:22px 0;transition:var(--transition);
+}
+.site-header.scrolled{
+  background:rgba(255,255,255,.92);backdrop-filter:blur(14px);
+  padding:14px 0;box-shadow:0 8px 30px rgba(50,55,60,.08);
+}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:22px;color:var(--color-ink);letter-spacing:-.01em;}
+.logo-mark{width:36px;height:36px;border-radius:50%;background:conic-gradient(from 200deg,var(--color-orange),var(--color-yellow),var(--color-orange));display:grid;place-items:center;color:#fff;font-size:16px;font-weight:800;box-shadow:0 6px 16px rgba(255,105,0,.35);}
+.logo small{display:block;font-size:9px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--color-muted);line-height:1;}
+.main-nav{display:flex;gap:34px;}
+.main-nav a{font-size:15px;font-weight:500;color:var(--color-body);position:relative;padding:6px 0;}
+.main-nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--color-orange);transition:width .3s;}
+.main-nav a:hover{color:var(--color-ink);}
+.main-nav a:hover::after{width:100%;}
+.header-cta{white-space:nowrap;padding:12px 26px;font-size:14px;}
+.hamburger{display:none;background:none;border:0;cursor:pointer;width:42px;height:42px;position:relative;z-index:1200;}
+.hamburger span{display:block;width:26px;height:2px;background:var(--color-ink);margin:6px auto;transition:var(--transition);border-radius:2px;}
+body.menu-open .hamburger span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+body.menu-open .hamburger span:nth-child(2){opacity:0;}
+body.menu-open .hamburger span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+
+/* mobile full-screen menu */
+.mobile-menu{
+  position:fixed;inset:0;background:var(--color-bg);z-index:1100;
+  display:flex;flex-direction:column;justify-content:center;padding:40px 32px;
+  opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s;
+}
+body.menu-open .mobile-menu{opacity:1;visibility:visible;}
+.mobile-menu a{font-size:34px;font-weight:700;color:var(--color-ink);padding:12px 0;border-bottom:1px solid var(--color-line);display:flex;justify-content:space-between;align-items:center;}
+.mobile-menu a span{font-size:13px;color:var(--color-muted);font-weight:500;}
+.mobile-menu .mm-contact{margin-top:28px;font-size:14px;color:var(--color-muted);}
+
+/* ============================================================
+   SECTION: Hero
+   ============================================================ */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:150px 0 90px;}
+.hero-bg{position:absolute;inset:0;pointer-events:none;}
+.hero-bg .blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;}
+.blob-1{width:520px;height:520px;background:var(--color-cyan);top:-140px;right:-120px;animation:float 9s ease-in-out infinite;}
+.blob-2{width:420px;height:420px;background:var(--color-yellow);bottom:-160px;left:-140px;opacity:.35;animation:float 11s ease-in-out infinite reverse;}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(-24px,26px)}}
+.hero-inner{position:relative;z-index:2;}
+.hero-eyebrow{font-size:14px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--color-accent);margin-bottom:24px;display:flex;align-items:center;gap:14px;}
+.hero-eyebrow::before{content:"";width:44px;height:2px;background:var(--color-orange);}
+.hero h1{
+  font-size:clamp(46px,8vw,104px);font-weight:800;color:var(--color-ink);
+  line-height:1.04;letter-spacing:-.03em;
+}
+.hero .rotator{
+  display:block;color:var(--color-accent);min-height:1.1em;position:relative;
+}
+.hero .rotator span{
+  display:inline-block;opacity:0;transform:translateY(28px);
+  transition:opacity .5s ease,transform .5s ease;position:absolute;left:0;top:0;white-space:nowrap;
+}
+.hero .rotator span.active{opacity:1;transform:translateY(0);position:relative;}
+.hero-sub{max-width:620px;margin-top:34px;font-size:17px;color:#5a6169;}
+.hero-actions{margin-top:44px;display:flex;gap:16px;flex-wrap:wrap;}
+.hero-scroll{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--color-muted);display:flex;flex-direction:column;align-items:center;gap:10px;}
+.hero-scroll::after{content:"";width:1px;height:44px;background:linear-gradient(var(--color-muted),transparent);animation:drip 1.8s ease-in-out infinite;}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ============================================================
+   SECTION: About / Hello & Welcome
+   ============================================================ */
+.about{background:var(--color-white);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start;}
+.about-statement{font-size:clamp(24px,2.6vw,34px);font-weight:600;color:var(--color-ink);line-height:1.45;margin-top:26px;}
+.about-statement em{font-style:normal;color:var(--color-orange);}
+.about-copy p{margin-bottom:18px;font-size:16px;}
+.legal-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+.chip{font-size:12.5px;font-weight:500;padding:9px 16px;border-radius:100px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-body);}
+.chip b{color:var(--color-accent);font-weight:600;}
+
+/* stats */
+.stats{background:var(--color-ink);color:var(--color-white);}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;text-align:center;}
+.stat-num{font-size:clamp(48px,6vw,84px);font-weight:800;line-height:1;color:var(--color-white);letter-spacing:-.02em;}
+.stat-num .plus{color:var(--color-orange);}
+.stat-num .pct{color:var(--color-green);}
+.stat-label{margin-top:14px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-muted);}
+
+/* ============================================================
+   SECTION: Services (What We Do)
+   ============================================================ */
+.services-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:60px;flex-wrap:wrap;}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+.service-card{
+  background:var(--color-white);border-radius:var(--radius);padding:44px 34px 38px;
+  box-shadow:var(--shadow-card);position:relative;overflow:hidden;
+  transition:var(--transition);display:flex;flex-direction:column;min-height:290px;
+}
+.service-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:5px;
+  background:var(--sc,var(--color-accent));transform:scaleX(0);transform-origin:left;transition:transform .45s ease;
+}
+.service-card:hover{transform:translateY(-10px);}
+.service-card:hover::before{transform:scaleX(1);}
+.service-num{font-size:13px;font-weight:700;color:var(--color-muted);letter-spacing:.2em;}
+.service-icon{width:58px;height:58px;border-radius:16px;display:grid;place-items:center;margin:22px 0 20px;background:color-mix(in srgb,var(--sc,var(--color-accent)) 12%, white);}
+.service-icon svg{width:28px;height:28px;stroke:var(--sc,var(--color-accent));fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.service-card h3{font-size:20px;font-weight:700;color:var(--color-ink);margin-bottom:12px;line-height:1.3;}
+.service-card p{font-size:14.5px;flex:1;}
+.service-link{margin-top:22px;font-size:14px;font-weight:600;color:var(--color-accent);display:inline-flex;align-items:center;gap:8px;}
+.service-link .arr{transition:transform .3s;}
+.service-card:hover .service-link .arr{transform:translateX(6px);}
+
+/* ============================================================
+   SECTION: Works / Portfolio
+   ============================================================ */
+.works{background:var(--color-white);}
+.works-head{max-width:760px;margin-bottom:56px;}
+.works-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.work-card{
+  border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;
+  aspect-ratio:4/4.6;transition:var(--transition);
+}
+.work-card:hover{transform:translateY(-8px);}
+.work-card:nth-child(1),.work-card:nth-child(6){grid-column:span 2;aspect-ratio:auto;min-height:340px;}
+.work-visual{position:absolute;inset:0;display:flex;align-items:flex-end;padding:28px;transition:transform .7s ease;}
+.work-card:hover .work-visual{transform:scale(1.05);}
+.wv-1{background:linear-gradient(135deg,#0693e3,#00d084);}
+.wv-2{background:linear-gradient(135deg,#9b51e0,#f78da7);}
+.wv-3{background:linear-gradient(135deg,#ff6900,#fcb900);}
+.wv-4{background:linear-gradient(135deg,#32373c,#0693e3);}
+.wv-5{background:linear-gradient(135deg,#00d084,#7bdcb5);}
+.wv-6{background:linear-gradient(135deg,#cf2e2e,#ff6900);}
+.wv-7{background:linear-gradient(135deg,#8ed1fc,#9b51e0);}
+.wv-8{background:linear-gradient(135deg,#fcb900,#f78da7);}
+.work-visual::before{
+  content:attr(data-mono);position:absolute;top:14px;right:20px;
+  font-size:clamp(64px,8vw,110px);font-weight:800;color:rgba(255,255,255,.16);line-height:1;letter-spacing:-.04em;
+}
+.work-info{position:relative;z-index:2;color:#fff;}
+.work-tag{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.2);backdrop-filter:blur(6px);padding:7px 14px;border-radius:100px;margin-bottom:12px;}
+.work-info h3{font-size:20px;font-weight:700;line-height:1.3;text-shadow:0 2px 12px rgba(0,0,0,.18);}
+.work-overlay{
+  position:absolute;inset:0;background:rgba(0,0,0,.45);display:grid;place-items:center;
+  opacity:0;transition:opacity .4s ease;z-index:3;
+}
+.work-card:hover .work-overlay{opacity:1;}
+.work-overlay span{
+  width:74px;height:74px;border-radius:50%;background:var(--color-white);color:var(--color-ink);
+  display:grid;place-items:center;font-size:24px;transform:scale(.5);transition:transform .4s ease;
+}
+.work-card:hover .work-overlay span{transform:scale(1);}
+.works-cta{text-align:center;margin-top:56px;}
+
+/* ============================================================
+   SECTION: Promo banners (dual cards)
+   ============================================================ */
+.banners .banner-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+.banner-card{
+  border-radius:var(--radius);padding:64px 52px;color:#fff;position:relative;overflow:hidden;
+  min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;transition:var(--transition);
+}
+.banner-card:hover{transform:translateY(-8px);}
+.banner-card.b1{background:linear-gradient(130deg,#0693e3 0%,#038 100%);}
+.banner-card.b2{background:linear-gradient(130deg,#00d084 0%,#0693e3 100%);}
+.banner-card::after{
+  content:"";position:absolute;width:280px;height:280px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.25);top:-90px;right:-70px;
+}
+.banner-card::before{
+  content:"";position:absolute;width:180px;height:180px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.18);top:-40px;right:-20px;
+}
+.banner-eyebrow{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;opacity:.85;margin-bottom:16px;}
+.banner-card h3{font-size:clamp(24px,2.6vw,34px);font-weight:700;line-height:1.28;max-width:420px;}
+.banner-link{margin-top:26px;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;}
+.banner-link .arr{transition:transform .3s;}
+.banner-card:hover .banner-link .arr{transform:translateX(6px);}
+
+/* ============================================================
+   SECTION: Clients
+   ============================================================ */
+.clients{background:var(--color-white);}
+.clients-intro{max-width:680px;margin-bottom:52px;}
+.clients-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
+.client-badge{
+  border:1px solid var(--color-line);border-radius:16px;background:var(--color-bg);
+  padding:26px 18px;text-align:center;font-weight:600;font-size:15px;color:var(--color-body);
+  transition:var(--transition);display:flex;flex-direction:column;gap:6px;justify-content:center;min-height:104px;
+}
+.client-badge small{font-size:11px;font-weight:500;color:var(--color-muted);letter-spacing:.08em;text-transform:uppercase;}
+.client-badge:hover{border-color:var(--color-accent);transform:translateY(-5px);box-shadow:var(--shadow-card);color:var(--color-ink);}
+
+/* ============================================================
+   SECTION: Team (Our Team)
+   ============================================================ */
+.team-head{margin-bottom:56px;}
+.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;}
+.team-card{background:var(--color-white);border-radius:var(--radius);padding:34px 22px;text-align:center;box-shadow:var(--shadow-card);transition:var(--transition);}
+.team-card:hover{transform:translateY(-8px);}
+.avatar{
+  width:88px;height:88px;border-radius:50%;margin:0 auto 18px;display:grid;place-items:center;
+  font-size:26px;font-weight:800;color:#fff;background:var(--tc,var(--color-accent));
+  box-shadow:0 10px 24px color-mix(in srgb,var(--tc,var(--color-accent)) 35%, transparent);
+}
+.team-card h4{font-size:16.5px;font-weight:700;color:var(--color-ink);}
+.team-card p{font-size:12.5px;color:var(--color-muted);margin-top:6px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;}
+
+/* ============================================================
+   SECTION: Newsletter
+   ============================================================ */
+.newsletter{background:var(--color-ink);color:var(--color-white);}
+.news-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;}
+.news-grid h2{font-size:clamp(30px,3.8vw,50px);font-weight:700;line-height:1.15;letter-spacing:-.02em;}
+.news-grid h2 span{color:var(--color-yellow);}
+.news-grid .sub{margin-top:18px;color:var(--color-muted);max-width:420px;}
+.news-form{display:flex;flex-direction:column;gap:16px;}
+.news-form input{
+  width:100%;padding:18px 24px;border-radius:100px;border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);color:#fff;font-size:15px;outline:none;transition:var(--transition);
+}
+.news-form input::placeholder{color:var(--color-muted);}
+.news-form input:focus{border-color:var(--color-accent);background:rgba(255,255,255,.1);}
+.news-form .btn{align-self:flex-start;}
+.news-note{font-size:12.5px;color:var(--color-muted);}
+.news-success{display:none;font-size:14px;color:var(--color-green);font-weight:600;}
+
+/* ============================================================
+   SECTION: Contact
+   ============================================================ */
+.contact-title{font-size:clamp(40px,6vw,84px);font-weight:800;color:var(--color-ink);letter-spacing:-.03em;line-height:1.08;}
+.contact-title em{font-style:normal;color:var(--color-orange);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:60px;align-items:start;}
+.contact-list{display:flex;flex-direction:column;gap:26px;}
+.contact-item{display:flex;gap:18px;align-items:flex-start;}
+.ci-icon{width:52px;height:52px;border-radius:14px;background:var(--color-white);box-shadow:var(--shadow-card);display:grid;place-items:center;flex-shrink:0;}
+.ci-icon svg{width:24px;height:24px;stroke:var(--color-accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.contact-item h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-muted);font-weight:600;margin-bottom:5px;}
+.contact-item p,.contact-item a{font-size:16px;color:var(--color-ink);font-weight:500;}
+.contact-item a:hover{color:var(--color-accent);}
+.contact-card{background:var(--color-white);border-radius:var(--radius);padding:46px 40px;box-shadow:var(--shadow-card);}
+.contact-card h3{font-size:24px;font-weight:700;color:var(--color-ink);margin-bottom:10px;}
+.contact-card>p{font-size:14.5px;margin-bottom:26px;}
+.contact-card .row{display:flex;justify-content:space-between;gap:14px;padding:15px 0;border-bottom:1px solid var(--color-line);font-size:14.5px;}
+.contact-card .row:last-of-type{border-bottom:0;}
+.contact-card .row b{color:var(--color-ink);font-weight:600;}
+.contact-card .btn{width:100%;justify-content:center;margin-top:24px;}
+
+/* ============================================================
+   COMPONENT: Footer
+   ============================================================ */
+.site-footer{background:var(--color-ink);color:var(--color-muted);padding:80px 0 0;}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px;padding-bottom:60px;}
+.footer-brand .logo{color:var(--color-white);margin-bottom:20px;}
+.footer-brand p{font-size:14.5px;max-width:340px;}
+.footer-col h4{color:var(--color-white);font-size:14px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:22px;font-weight:600;}
+.footer-col ul li{margin-bottom:12px;}
+.footer-col a{font-size:15px;transition:color .3s;}
+.footer-col a:hover{color:var(--color-white);}
+.footer-contact li{display:flex;gap:12px;font-size:14.5px;margin-bottom:14px;align-items:flex-start;}
+.footer-contact svg{width:18px;height:18px;stroke:var(--color-orange);fill:none;stroke-width:1.8;flex-shrink:0;margin-top:4px;stroke-linecap:round;stroke-linejoin:round;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:24px 0;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13px;}
+.footer-bottom a:hover{color:#fff;}
+
+/* back to top */
+.to-top{
+  position:fixed;right:26px;bottom:26px;width:50px;height:50px;border-radius:50%;
+  background:var(--color-accent);color:#fff;border:0;cursor:pointer;font-size:20px;z-index:900;
+  opacity:0;visibility:hidden;transform:translateY(14px);transition:var(--transition);
+  box-shadow:0 10px 26px rgba(6,147,227,.4);
+}
+.to-top.show{opacity:1;visibility:visible;transform:translateY(0);}
+.to-top:hover{background:var(--color-orange);}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:1024px){
+  .main-nav{display:none;}
+  .hamburger{display:block;}
+  .header-cta{display:none;}
+  .services-grid{grid-template-columns:repeat(2,1fr);}
+  .works-grid{grid-template-columns:repeat(2,1fr);}
+  .work-card:nth-child(1),.work-card:nth-child(6){grid-column:span 2;}
+  .clients-grid{grid-template-columns:repeat(3,1fr);}
+  .team-grid{grid-template-columns:repeat(3,1fr);}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .about-grid,.contact-grid,.news-grid{grid-template-columns:1fr;gap:44px;}
+}
+@media(max-width:640px){
+  section{padding:76px 0;}
+  .services-grid{grid-template-columns:1fr;}
+  .works-grid{grid-template-columns:1fr;}
+  .work-card:nth-child(1),.work-card:nth-child(6){grid-column:auto;min-height:0;aspect-ratio:4/4.6;}
+  .banners .banner-grid{grid-template-columns:1fr;}
+  .banner-card{padding:46px 32px;}
+  .clients-grid{grid-template-columns:repeat(2,1fr);}
+  .team-grid{grid-template-columns:repeat(2,1fr);}
+  .stats-grid{grid-template-columns:1fr;gap:44px;}
+  .footer-grid{grid-template-columns:1fr;}
+  .hero{padding-top:130px;}
+  .hero-scroll{display:none;}
+}
+</style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <img src="logo.png" alt="Amber Event Logo">
-                <div class="logo-text">AMBER <span>EVENT</span></div>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#clients">Clients</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
+<!-- ================= COMPONENT: SiteHeader ================= -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav-wrap">
+    <a href="#home" class="logo" aria-label="Amber Event Production — Home">
+      <span class="logo-mark">A</span>
+      <span>AMBER<small>Event Production</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#services">What We Do</a>
+      <a href="#works">Portfolio</a>
+      <a href="#team">Our Team</a>
+      <a href="#contact">Contact</a>
     </nav>
+    <a href="#contact" class="btn btn-accent header-cta">Let&rsquo;s Talk</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <img src="logo.png" alt="Amber Event Production" class="hero-logo">
-            <h1>PT AMBER EVENT PRODUCTION</h1>
-            <h2>Event Production • Brand Activation • MICE • Merchandise</h2>
-            <p>Menciptakan pengalaman acara yang berkesan dan berkelanjutan sejak 2026</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Hubungi Kami</a>
-                <a href="#portfolio" class="btn btn-secondary">Lihat Portfolio</a>
-            </div>
+<!-- mobile menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="#home">Home <span>01</span></a>
+  <a href="#about">About Us <span>02</span></a>
+  <a href="#services">What We Do <span>03</span></a>
+  <a href="#works">Portfolio <span>04</span></a>
+  <a href="#team">Our Team <span>05</span></a>
+  <a href="#contact">Contact <span>06</span></a>
+  <p class="mm-contact">amber.eventproduction@gmail.com<br>Kab. Malang, Jawa Timur — Indonesia</p>
+</div>
+
+<!-- ================= SECTION: Hero ================= -->
+<section class="hero" id="home">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+  <div class="container hero-inner">
+    <p class="hero-eyebrow">Hello &amp; Welcome</p>
+    <h1>
+      We are Amber
+      <span class="rotator" id="rotator" aria-live="polite">
+        <span class="active">Event Production.</span>
+        <span>Brand Activation.</span>
+        <span>MICE Specialist.</span>
+        <span>Manpower Supply.</span>
+        <span>Booth &amp; Backdrop.</span>
+        <span>Merchandise.</span>
+        <span>Sustainable Events.</span>
+      </span>
+    </h1>
+    <p class="hero-sub">
+      Perusahaan penyelenggara acara yang didirikan di Kota Malang, Indonesia. Kami menyusun konsep,
+      linimasa, visual, serta fleksibilitas anggaran yang matang — menghadirkan solusi bagi setiap
+      kegiatan melalui eksekusi yang maksimal.
+    </p>
+    <div class="hero-actions">
+      <a href="#works" class="btn btn-dark">Explore Our Works <span class="arr">&rarr;</span></a>
+      <a href="#services" class="btn btn-outline">What We Do</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- ================= SECTION: About ================= -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal">
+        <span class="eyebrow">Hello &amp; Welcome.</span>
+        <h2 class="section-title">Amber Event<span class="dot">.</span></h2>
+        <p class="about-statement">
+          Kami percaya sebuah acara tidak hanya harus <em>berkesan</em>, tetapi juga memberikan
+          <em>dampak positif</em> bagi dunia.
+        </p>
+      </div>
+      <div class="about-copy reveal d2">
+        <p>
+          <strong>PT Amber Event Production</strong> didirikan pada tahun 2026 di Kota Malang yang dinamis.
+          Nama kami mencerminkan semangat untuk menghadapi berbagai tantangan dalam dunia bisnis masa kini.
+        </p>
+        <p>
+          Kami memiliki spesialisasi dalam merancang pengalaman yang membekas di hati dan benak klien,
+          serta terus melampaui batasan dalam perencanaan acara konvensional. Mulai dari acara resmi
+          pemerintahan hingga kegiatan korporat, kami memadukan kreativitas dan ketelitian dalam setiap proyek.
+        </p>
+        <p>
+          Di Amber Event, keberlanjutan menjadi inti dari segala hal yang kami lakukan — kami adalah
+          pelopor dalam merancang acara dengan pendekatan yang sadar lingkungan.
+        </p>
+        <div class="legal-chips">
+          <span class="chip"><b>PT</b> Perseroan Terbatas</span>
+          <span class="chip"><b>PMDN</b> Investment Status</span>
+          <span class="chip">NIB <b>2205260068269</b></span>
+          <span class="chip">AHU-A090335.AH.01.30.<b>2026</b></span>
+          <span class="chip">Registered <b>20 Mei 2026</b></span>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="section-title fade-in">
-            <h2>Tentang Kami</h2>
-            <p>Perusahaan event production yang berkomitmen pada keberlanjutan dan inovasi</p>
+<!-- ================= SECTION: Stats ================= -->
+<section class="stats" id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="reveal">
+        <div class="stat-num"><span class="counter" data-target="100">0</span><span class="pct">%</span></div>
+        <div class="stat-label">Client Commitment</div>
+      </div>
+      <div class="reveal d1">
+        <div class="stat-num"><span class="counter" data-target="13">0</span><span class="plus">+</span></div>
+        <div class="stat-label">Projects in 2026</div>
+      </div>
+      <div class="reveal d2">
+        <div class="stat-num"><span class="counter" data-target="10">0</span><span class="plus">+</span></div>
+        <div class="stat-label">Brand &amp; Government Clients</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECTION: Services / What We Do ================= -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-head">
+      <div class="reveal">
+        <span class="eyebrow">What We Do</span>
+        <h2 class="section-title">Produk &amp; Layanan<span class="dot">.</span></h2>
+      </div>
+      <p class="section-lead reveal d2">
+        Kami menguasai seni perencanaan dan penyelenggaraan acara — dari tahap konsep hingga
+        pelaksanaan, setiap detail ditangani dengan presisi, kreativitas, dan komitmen terhadap keunggulan.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <article class="service-card reveal" style="--sc:#0693e3">
+        <span class="service-num">01</span>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M8 5v4M16 5v4"/></svg></div>
+        <h3>Event Production &amp; MICE</h3>
+        <p>Meetings, Incentives, Conferences &amp; Exhibitions — pertemuan bisnis berdampak tinggi yang mendukung pencapaian tujuan organisasi Anda.</p>
+        <a class="service-link" href="#contact">Discover more <span class="arr">&rarr;</span></a>
+      </article>
+
+      <article class="service-card reveal d1" style="--sc:#ff6900">
+        <span class="service-num">02</span>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.6L20 9l-4.2 3.7L17 19l-5-3-5 3 1.2-6.3L4 9l5.6-1.4z"/></svg></div>
+        <h3>Brand Activation</h3>
+        <p>Kampanye aktivasi merek yang engaging — peluncuran produk, gathering, hingga festival yang meninggalkan kesan mendalam bagi audiens.</p>
+        <a class="service-link" href="#contact">Discover more <span class="arr">&rarr;</span></a>
+      </article>
+
+      <article class="service-card reveal d2" style="--sc:#9b51e0">
+        <span class="service-num">03</span>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20c.6-3.4 2.8-5 5.5-5s4.9 1.6 5.5 5M16.5 8.5a3 3 0 100-1M17.5 15.2c2 .6 3.2 2.1 3.6 4.8"/></svg></div>
+        <h3>Manpower (SPG &amp; SPB)</h3>
+        <p>Talenta lapangan berpenampilan menarik dengan kemampuan persuasive selling untuk sampling dan pembelian langsung di area retail maupun nightlife.</p>
+        <a class="service-link" href="#contact">Discover more <span class="arr">&rarr;</span></a>
+      </article>
+
+      <article class="service-card reveal" style="--sc:#00d084">
+        <span class="service-num">04</span>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 21V8l8-5 8 5v13M9 21v-7h6v7"/></svg></div>
+        <h3>Booth &amp; Backdrop</h3>
+        <p>Solusi end-to-end pembuatan dan manajemen booth pameran — memastikan representasi merek tampil prima, komunikatif, dan mencapai target.</p>
+        <a class="service-link" href="#contact">Discover more <span class="arr">&rarr;</span></a>
+      </article>
+
+      <article class="service-card reveal d1" style="--sc:#fcb900">
+        <span class="service-num">05</span>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M6 7h12l1.5 13.5h-15L6 7z"/><path d="M9 7a3 3 0 016 0"/></svg></div>
+        <h3>Merchandise Production</h3>
+        <p>Dari konseptualisasi hingga pengiriman — pakaian berlogo, produk promosi, dan merchandise khusus acara yang selaras dengan identitas merek.</p>
+        <a class="service-link" href="#contact">Discover more <span class="arr">&rarr;</span></a>
+      </article>
+
+      <article class="service-card reveal d2" style="--sc:#cf2e2e">
+        <span class="service-num">06</span>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 21c-4.5-1.8-7-5-7-9V6l7-3 7 3v6c0 4-2.5 7.2-7 9z"/><path d="M9.5 12l2 2 3.5-4"/></svg></div>
+        <h3>Sustainable Event Support</h3>
+        <p>Pelopor acara dengan pendekatan sadar lingkungan — praktik ramah lingkungan terintegrasi dalam setiap produksi dan eksekusi acara.</p>
+        <a class="service-link" href="#contact">Discover more <span class="arr">&rarr;</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECTION: Works / Portfolio ================= -->
+<section class="works" id="works">
+  <div class="container">
+    <div class="works-head reveal">
+      <span class="eyebrow">Portfolio</span>
+      <h2 class="section-title">Works<span class="dot">.</span></h2>
+      <p class="section-lead">
+        Kami menghadirkan karya yang mencerminkan kreativitas dan keunggulan strategis. Dari
+        aktivasi merek hingga proyek pemerintahan, setiap acara dirancang untuk menciptakan dampak nyata.
+      </p>
+    </div>
+
+    <div class="works-grid">
+      <a href="#contact" class="work-card reveal">
+        <div class="work-visual wv-1" data-mono="SPF">
+          <div class="work-info"><span class="work-tag">Brand Activation</span><h3>Sampoerna Prima Festival 2026</h3></div>
         </div>
-        <div class="about-content">
-            <div class="about-image fade-in">
-                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800" alt="Event Production">
-            </div>
-            <div class="about-text fade-in">
-                <h3>Partner Event Terpercaya Anda</h3>
-                <p>PT Amber Event Production didirikan pada pertengahan tahun 2026 di kota Malang, Indonesia. Nama "Amber Event Production" mencerminkan semangat kami untuk menghadapi berbagai tantangan dalam dunia bisnis masa kini.</p>
-                <p>Kami menghadirkan solusi bagi setiap kegiatan melalui eksekusi yang maksimal, dengan menyusun konsep, linimasa, visual, serta fleksibilitas anggaran yang matang dan disesuaikan dengan kebutuhan klien.</p>
-                <p>Filosofi utama kami berlandaskan keyakinan bahwa sebuah acara tidak hanya harus berkesan, tetapi juga memberikan dampak positif bagi dunia.</p>
-                
-                <div class="values">
-                    <div class="value-item">
-                        <i class="fas fa-leaf"></i>
-                        <div>
-                            <h4>Eco-Friendly</h4>
-                            <p>Praktik ramah lingkungan</p>
-                        </div>
-                    </div>
-                    <div class="value-item">
-                        <i class="fas fa-lightbulb"></i>
-                        <div>
-                            <h4>Inovatif</h4>
-                            <p>Kreativitas tanpa batas</p>
-                        </div>
-                    </div>
-                    <div class="value-item">
-                        <i class="fas fa-check-circle"></i>
-                        <div>
-                            <h4>Profesional</h4>
-                            <p>Eksekusi maksimal</p>
-                        </div>
-                    </div>
-                    <div class="value-item">
-                        <i class="fas fa-handshake"></i>
-                        <div>
-                            <h4>Terpercaya</h4>
-                            <p>Mitra terbaik Anda</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="work-overlay"><span>&rarr;</span></div>
+      </a>
+      <a href="#contact" class="work-card reveal d1">
+        <div class="work-visual wv-2" data-mono="KH">
+          <div class="work-info"><span class="work-tag">Gathering</span><h3>Kahf Ramadhan Gathering</h3></div>
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services">
-        <div class="section-title fade-in">
-            <h2>Layanan Kami</h2>
-            <p>Solusi lengkap untuk kebutuhan event dan brand activation Anda</p>
+        <div class="work-overlay"><span>&rarr;</span></div>
+      </a>
+      <a href="#contact" class="work-card reveal d2">
+        <div class="work-visual wv-3" data-mono="SS">
+          <div class="work-info"><span class="work-tag">Branding . 300+ Titik</span><h3>Shopsign Sampoerna Malang Raya</h3></div>
         </div>
-        <div class="services-grid">
-            <div class="service-card fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-calendar-alt"></i>
-                </div>
-                <h3>Event Production</h3>
-                <p>Kami menguasai seni perencanaan dan penyelenggaraan acara. Dari konsep hingga pelaksanaan, kami menangani setiap detail dengan presisi dan kreativitas.</p>
-                <ul class="service-list">
-                    <li><i class="fas fa-chevron-right"></i> Corporate Events</li>
-                    <li><i class="fas fa-chevron-right"></i> Product Launching</li>
-                    <li><i class="fas fa-chevron-right"></i> Private Celebrations</li>
-                    <li><i class="fas fa-chevron-right"></i> Government Events</li>
-                </ul>
-            </div>
-
-            <div class="service-card fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-briefcase"></i>
-                </div>
-                <h3>MICE</h3>
-                <p>Meetings, Incentives, Conferences, and Exhibitions. Kami menyelenggarakan pertemuan bisnis berdampak tinggi yang meninggalkan kesan mendalam.</p>
-                <ul class="service-list">
-                    <li><i class="fas fa-chevron-right"></i> Business Conferences</li>
-                    <li><i class="fas fa-chevron-right"></i> Incentive Programs</li>
-                    <li><i class="fas fa-chevron-right"></i> Trade Exhibitions</li>
-                    <li><i class="fas fa-chevron-right"></i> Corporate Meetings</li>
-                </ul>
-            </div>
-
-            <div class="service-card fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-bullhorn"></i>
-                </div>
-                <h3>Brand Activation</h3>
-                <p>Tingkatkan kehadiran merek Anda dengan strategi aktivasi yang kreatif dan efektif untuk menjangkau target audiens secara maksimal.</p>
-                <ul class="service-list">
-                    <li><i class="fas fa-chevron-right"></i> Brand Awareness</li>
-                    <li><i class="fas fa-chevron-right"></i> Product Sampling</li>
-                    <li><i class="fas fa-chevron-right"></i> Roadshow Events</li>
-                    <li><i class="fas fa-chevron-right"></i> Retail Activation</li>
-                </ul>
-            </div>
-
-            <div class="service-card fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-tshirt"></i>
-                </div>
-                <h3>Merchandise Production</h3>
-                <p>Kreasi merchandise khusus yang selaras dengan identitas dan tujuan merek Anda, dengan fokus pada praktik produksi berkelanjutan.</p>
-                <ul class="service-list">
-                    <li><i class="fas fa-chevron-right"></i> Branded Apparel</li>
-                    <li><i class="fas fa-chevron-right"></i> Promotional Products</li>
-                    <li><i class="fas fa-chevron-right"></i> Event Merchandise</li>
-                    <li><i class="fas fa-chevron-right"></i> Custom Items</li>
-                </ul>
-            </div>
-
-            <div class="service-card fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <h3>Manpower</h3>
-                <p>Penyediaan SPG & SPB berpengalaman untuk representasi merek yang prima dan komunikatif di setiap event.</p>
-                <ul class="service-list">
-                    <li><i class="fas fa-chevron-right"></i> Sales Promotion Girl/Boy</li>
-                    <li><i class="fas fa-chevron-right"></i> Event Staff</li>
-                    <li><i class="fas fa-chevron-right"></i> Usher & Hostess</li>
-                    <li><i class="fas fa-chevron-right"></i> Security & Crew</li>
-                </ul>
-            </div>
-
-            <div class="service-card fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-store"></i>
-                </div>
-                <h3>Booth & Backdrop</h3>
-                <p>Pembuatan dan manajemen booth pameran serta backdrop profesional untuk mendukung kesuksesan event Anda.</p>
-                <ul class="service-list">
-                    <li><i class="fas fa-chevron-right"></i> Exhibition Booth</li>
-                    <li><i class="fas fa-chevron-right"></i> Custom Backdrop</li>
-                    <li><i class="fas fa-chevron-right"></i> Stage Design</li>
-                    <li><i class="fas fa-chevron-right"></i> Installation & Setup</li>
-                </ul>
-            </div>
+        <div class="work-overlay"><span>&rarr;</span></div>
+      </a>
+      <a href="#contact" class="work-card reveal d3">
+        <div class="work-visual wv-4" data-mono="SE">
+          <div class="work-info"><span class="work-tag">Corporate Event</span><h3>Schneider Electric Team Building</h3></div>
         </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="section-title fade-in">
-            <h2>Portfolio Kami</h2>
-            <p>Beberapa proyek yang telah kami kerjakan dengan bangga</p>
+        <div class="work-overlay"><span>&rarr;</span></div>
+      </a>
+      <a href="#contact" class="work-card reveal">
+        <div class="work-visual wv-5" data-mono="SD">
+          <div class="work-info"><span class="work-tag">Government Launching</span><h3>Launching Samsat Digital — Bapenda Jabar</h3></div>
         </div>
-        <div class="portfolio-grid">
-            <div class="portfolio-card fade-in">
-                <div class="portfolio-image">
-                    <i class="fas fa-music"></i>
-                </div>
-                <div class="portfolio-content">
-                    <h3>Sampoerna Prima Festival 2026</h3>
-                    <p>Maksimalkan penetrasi pasar produk tembakau dengan layanan penyediaan SPG & SPB berpengalaman. Talent dengan kemampuan persuasive selling tinggi untuk sampling dan pembelian langsung di area retail maupun nightlife.</p>
-                    <div class="portfolio-tags">
-                        <span class="tag">Brand Activation</span>
-                        <span class="tag">Manpower</span>
-                        <span class="tag">Event Support</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="portfolio-card fade-in">
-                <div class="portfolio-image">
-                    <i class="fas fa-mosque"></i>
-                </div>
-                <div class="portfolio-content">
-                    <h3>Kahf Ramadhan Gathering</h3>
-                    <p>Acara gathering yang menghadirkan kampanye menarik dan inovatif. Wadah pertemuan bagi influencer dan media, dengan tausiah ringan namun berbobot serta sesi refleksi diri untuk meningkatkan keimanan selama bulan Ramadan.</p>
-                    <div class="portfolio-tags">
-                        <span class="tag">Event Production</span>
-                        <span class="tag">Gathering</span>
-                        <span class="tag">Surabaya</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="portfolio-card fade-in">
-                <div class="portfolio-image">
-                    <i class="fas fa-sign"></i>
-                </div>
-                <div class="portfolio-content">
-                    <h3>Shopsign Sampoerna</h3>
-                    <p>Pemasangan material promo dari brand Sampoerna dengan total lebih dari 300 titik pemasangan dan maintenance di Kota & Kabupaten Malang. Identitas toko resmi yang membangun brand awareness.</p>
-                    <div class="portfolio-tags">
-                        <span class="tag">Installation</span>
-                        <span class="tag">Maintenance</span>
-                        <span class="tag">300+ Titik</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="portfolio-card fade-in">
-                <div class="portfolio-image">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                </div>
-                <div class="portfolio-content">
-                    <h3>Schneider Electric Team Building</h3>
-                    <p>Penyediaan solusi end-to-end untuk SPG, SPB, serta pembuatan dan manajemen booth pameran. Memastikan representasi merek tampil prima dan mencapai target penjualan maksimal.</p>
-                    <div class="portfolio-tags">
-                        <span class="tag">Team Building</span>
-                        <span class="tag">Booth</span>
-                        <span class="tag">Jawa Timur</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="portfolio-card fade-in">
-                <div class="portfolio-image">
-                    <i class="fas fa-rocket"></i>
-                </div>
-                <div class="portfolio-content">
-                    <h3>Compass x Tame Impala</h3>
-                    <p>Part of Launching Compass x Tame Impala Tokopedia di Malang. Event launching produk dengan konsep modern dan profesional untuk target market muda.</p>
-                    <div class="portfolio-tags">
-                        <span class="tag">Product Launch</span>
-                        <span class="tag">Tokopedia</span>
-                        <span class="tag">Malang</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="portfolio-card fade-in">
-                <div class="portfolio-image">
-                    <i class="fas fa-laptop"></i>
-                </div>
-                <div class="portfolio-content">
-                    <h3>Virtual Events Paragon</h3>
-                    <p>Launching Virtual Bio Def dan Press Conference Wardah - Paragon. Event virtual dengan produksi profesional untuk menjangkau audiens yang lebih luas.</p>
-                    <div class="portfolio-tags">
-                        <span class="tag">Virtual Event</span>
-                        <span class="tag">Paragon</span>
-                        <span class="tag">Press Conference</span>
-                    </div>
-                </div>
-            </div>
+        <div class="work-overlay"><span>&rarr;</span></div>
+      </a>
+      <a href="#contact" class="work-card reveal d1">
+        <div class="work-visual wv-6" data-mono="TP">
+          <div class="work-info"><span class="work-tag">Digital Activation</span><h3>Live Shopping Tokopedia &amp; Launching Compass</h3></div>
         </div>
-    </section>
-
-    <!-- Clients Section -->
-    <section id="clients">
-        <div class="section-title fade-in">
-            <h2>Klien Kami</h2>
-            <p>Trust by leading brands and institutions</p>
+        <div class="work-overlay"><span>&rarr;</span></div>
+      </a>
+      <a href="#contact" class="work-card reveal d2">
+        <div class="work-visual wv-7" data-mono="WD">
+          <div class="work-info"><span class="work-tag">Virtual Event</span><h3>Press Conference Wardah — Paragon</h3></div>
         </div>
-        <div class="clients-grid">
-            <div class="client-item fade-in">
-                <i class="fas fa-shopping-bag"></i>
-                <h4>Tokopedia</h4>
-                <p>E-Commerce Platform</p>
-            </div>
-            <div class="client-item fade-in">
-                <i class="fas fa-pump-soap"></i>
-                <h4>Unilever</h4>
-                <p>Consumer Goods</p>
-            </div>
-            <div class="client-item fade-in">
-                <i class="fas fa-seedling"></i>
-                <h4>Paragon</h4>
-                <p>Cosmetics</p>
-            </div>
-            <div class="client-item fade-in">
-                <i class="fas fa-smoking"></i>
-                <h4>Sampoerna</h4>
-                <p>Tobacco Industry</p>
-            </div>
-            <div class="client-item fade-in">
-                <i class="fas fa-bolt"></i>
-                <h4>Schneider Electric</h4>
-                <p>Energy Management</p>
-            </div>
-            <div class="client-item fade-in">
-                <i class="fas fa-motorcycle"></i>
-                <h4>Motul</h4>
-                <p>Lubricants</p>
-            </div>
-            <div class="client-item fade-in">
-                <i class="fas fa-male"></i>
-                <h4>Kahf</h4>
-                <p>Men's Care</p>
-            </div>
-            <div class="client-item fade-in">
-                <i class="fas fa-landmark"></i>
-                <h4>Bapenda Jatim</h4>
-                <p>Government</p>
-            </div>
+        <div class="work-overlay"><span>&rarr;</span></div>
+      </a>
+      <a href="#contact" class="work-card reveal d3">
+        <div class="work-visual wv-8" data-mono="UL">
+          <div class="work-info"><span class="work-tag">Product Launching</span><h3>Launching Produk Unilever Malang Selatan</h3></div>
         </div>
-    </section>
+        <div class="work-overlay"><span>&rarr;</span></div>
+      </a>
+    </div>
 
-    <!-- Legal Section -->
-    <section class="legal">
-        <div class="section-title fade-in">
-            <h2>Legalitas Perusahaan</h2>
-            <p>Perusahaan resmi dan terpercaya</p>
+    <div class="works-cta reveal">
+      <a href="#contact" class="btn btn-dark">Let&rsquo;s Work Together <span class="arr">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECTION: Promo banners ================= -->
+<section class="banners">
+  <div class="container">
+    <div class="banner-grid">
+      <div class="banner-card b1 reveal">
+        <p class="banner-eyebrow">Hello &amp; Welcome</p>
+        <h3>We craft memorable event experiences for your brand.</h3>
+        <a href="#contact" class="banner-link">Read more <span class="arr">&rarr;</span></a>
+      </div>
+      <div class="banner-card b2 reveal d2">
+        <p class="banner-eyebrow">Hello &amp; Welcome</p>
+        <h3>Elevating events through innovation &amp; sustainability.</h3>
+        <a href="#contact" class="banner-link">Read more <span class="arr">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECTION: Clients ================= -->
+<section class="clients" id="clients">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Clients 2026</span>
+      <h2 class="section-title">Trusted by Brands<span class="dot">.</span></h2>
+      <p class="clients-intro section-lead">
+        Klien adalah tulang punggung bisnis kami. Kami memahami kebutuhan unik setiap klien dan
+        berkomitmen menghadirkan solusi yang disesuaikan dengan persyaratan spesifik mereka.
+      </p>
+    </div>
+    <div class="clients-grid">
+      <div class="client-badge reveal">Tokopedia<small>Live Shopping &amp; Launching</small></div>
+      <div class="client-badge reveal d1">Paragon<small>Wardah . Kahf</small></div>
+      <div class="client-badge reveal d2">Sampoerna<small>Festival . Shopsign . Sunblind</small></div>
+      <div class="client-badge reveal d3">Unilever<small>Distributor Malang Selatan</small></div>
+      <div class="client-badge reveal d4">Schneider Electric<small>Team Building Jatim</small></div>
+      <div class="client-badge reveal">Compass<small>Launching x Tame Impala</small></div>
+      <div class="client-badge reveal d1">Motul<small>Virtual Event</small></div>
+      <div class="client-badge reveal d2">Bapenda Prov. Jabar<small>Samsat Digital</small></div>
+      <div class="client-badge reveal d3">Sasa<small>Santan . bersama DIKA BJ Team</small></div>
+      <div class="client-badge reveal d4">Bio Def<small>Virtual Launching</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECTION: Team ================= -->
+<section class="team" id="team">
+  <div class="container">
+    <div class="team-head reveal">
+      <span class="eyebrow">Our Team</span>
+      <h2 class="section-title">The People Behind Amber<span class="dot">.</span></h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal" style="--tc:#0693e3">
+        <div class="avatar">AF</div>
+        <h4>Ahmad FS</h4><p>CEO / Project Manager</p>
+      </div>
+      <div class="team-card reveal d1" style="--tc:#ff6900">
+        <div class="avatar">RJ</div>
+        <h4>Reiza J P</h4><p>Deputy Director / Accounting</p>
+      </div>
+      <div class="team-card reveal d2" style="--tc:#9b51e0">
+        <div class="avatar">VR</div>
+        <h4>Vira Rosalia</h4><p>Secretary &amp; Public Relation</p>
+      </div>
+      <div class="team-card reveal d3" style="--tc:#00d084">
+        <div class="avatar">IF</div>
+        <h4>Idaman FNC</h4><p>Creative / Photo &amp; Video</p>
+      </div>
+      <div class="team-card reveal d4" style="--tc:#cf2e2e">
+        <div class="avatar">SS</div>
+        <h4>Saifudin S</h4><p>Marketing Communication</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECTION: Newsletter ================= -->
+<section class="newsletter">
+  <div class="container news-grid">
+    <div class="reveal">
+      <h2>Get updated <span>weekly.</span></h2>
+      <p class="sub">Dapatkan artikel &amp; kabar terbaru seputar dunia event, aktivasi merek, dan proyek terbaru kami langsung di inbox Anda.</p>
+    </div>
+    <form class="news-form reveal d2" id="newsForm" novalidate>
+      <input type="text" name="name" placeholder="Name" required aria-label="Name">
+      <input type="email" name="email" placeholder="Email" required aria-label="Email">
+      <button type="submit" class="btn btn-accent">Subscribe <span class="arr">&rarr;</span></button>
+      <p class="news-note">Dengan berlangganan, Anda menyetujui untuk menerima kabar berkala dari Amber Event Production.</p>
+      <p class="news-success" id="newsSuccess">Terima kasih! Anda telah berlangganan. ✓</p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= SECTION: Contact ================= -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Contact</span>
+      <h2 class="contact-title">Let&rsquo;s get in <em>touch</em>.</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-list reveal d1">
+        <div class="contact-item">
+          <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 10-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
+          <div><h4>Registered Office</h4><p>Dusun Krajan RT. 003 RW. 001, Asrikaton, Pakis,<br>Kab. Malang, Jawa Timur 65154</p></div>
         </div>
-        <div class="legal-content">
-            <div class="legal-card fade-in">
-                <i class="fas fa-building"></i>
-                <h4>Badan Hukum</h4>
-                <p>Perseroan Terbatas</p>
-                <strong>PT. AMBER EVENT PRODUCTION</strong>
-            </div>
-            <div class="legal-card fade-in">
-                <i class="fas fa-file-contract"></i>
-                <h4>NIB</h4>
-                <p>Nomor Induk Berusaha</p>
-                <strong>2205260068269</strong>
-            </div>
-            <div class="legal-card fade-in">
-                <i class="fas fa-certificate"></i>
-                <h4>AHU</h4>
-                <p>Kementerian Hukum dan HAM</p>
-                <strong>AHU-A090335.AH.01.30.Tahun 2026</strong>
-            </div>
-            <div class="legal-card fade-in">
-                <i class="fas fa-id-card"></i>
-                <h4>NPWP</h4>
-                <p>Nomor Pokok Wajib Pajak</p>
-                <strong>10.000.000.0-970.2154</strong>
-            </div>
-            <div class="legal-card fade-in">
-                <i class="fas fa-chart-line"></i>
-                <h4>Investment Status</h4>
-                <p>Penanaman Modal</p>
-                <strong>Dalam Negeri (PMDN)</strong>
-            </div>
-            <div class="legal-card fade-in">
-                <i class="fas fa-store-alt"></i>
-                <h4>Digital Platform</h4>
-                <p>Tersedia di</p>
-                <strong>E-Catalogue & M-biz</strong>
-            </div>
+        <div class="contact-item">
+          <div class="ci-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+          <div><h4>Email</h4><a href="mailto:amber.eventproduction@gmail.com">amber.eventproduction@gmail.com</a></div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="section-title fade-in">
-            <h2>Hubungi Kami</h2>
-            <p>Mari diskusikan kebutuhan event Anda bersama kami</p>
+        <div class="contact-item">
+          <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg></div>
+          <div>
+            <h4>Phone / WhatsApp</h4>
+            <a href="tel:+628568088959">0856 8088 959 — Ahmad FS</a><br>
+            <a href="tel:+6289670506868">0896 7050 6868 — Reiza J P</a><br>
+            <a href="tel:+6289695907909">0896 9590 7909 — Idaman FNC</a>
+          </div>
         </div>
-        <div class="contact-content">
-            <div class="contact-info fade-in">
-                <h3>Mari Bekerja Sama</h3>
-                <p>Jadikan PT Amber Event Production sebagai mitra acara Anda, dan rasakan perpaduan sempurna antara inovasi, kreativitas, dan keberlanjutan yang membedakan kami dalam dunia manajemen event.</p>
-                
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Alamat Kantor</h4>
-                            <p>Dusun Krajan RT. 003 RW. 001<br>Asrikaton, Pakis<br>Kab. Malang, Jawa Timur 65154</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>amber.eventproduction@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <h4>Telepon / WhatsApp</h4>
-                            <p>Ahmad FS: 0856 8088 959<br>Reiza J P: 0896 7050 6868<br>Idaman FNC: 0896 9590 7909</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="contact-form fade-in">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Nama Lengkap</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Nomor Telepon</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Pesan</label>
-                        <textarea id="message" name="message" placeholder="Ceritakan kebutuhan event Anda..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">
-                        <i class="fas fa-paper-plane"></i> Kirim Pesan
-                    </button>
-                </form>
-            </div>
+        <div class="contact-item">
+          <div class="ci-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+          <div><h4>Working Hours</h4><p>Monday – Saturday &nbsp;08.00 – 16.00 WIB</p></div>
         </div>
-    </section>
+      </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="logo.png" alt="Amber Event Logo">
-            </div>
-            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 1rem;">
-                PT AMBER <span style="color: var(--amber-primary);">EVENT</span> PRODUCTION
-            </h3>
-            <p style="color: var(--text-gray); max-width: 600px; margin: 0 auto 2rem;">
-                Menciptakan pengalaman acara yang berkesan dan berkelanjutan
-            </p>
-            
-            <div class="social-links">
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="mailto:amber.eventproduction@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 PT Amber Event Production. All Rights Reserved.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.85rem;">
-                    Registered Office: Dsn. Krajan, Rt/Rw 003/001, Asrikaton-Pakis-Kab. Malang 65154
-                </p>
-            </div>
-        </div>
-    </footer>
+      <div class="contact-card reveal d2">
+        <h3>Work inquiries</h3>
+        <p>Siap menjadikan acara Anda pengalaman yang tak terlupakan? Ceritakan kebutuhan Anda, dan tim kami akan merespons dengan konsep serta estimasi terbaik.</p>
+        <div class="row"><b>Email</b><span>amber.eventproduction@gmail.com</span></div>
+        <div class="row"><b>Hotline</b><span>0856 8088 959</span></div>
+        <div class="row"><b>Layanan</b><span>Event . Activation . MICE . Booth</span></div>
+        <a href="mailto:amber.eventproduction@gmail.com?subject=Work%20Inquiry%20—%20Amber%20Event%20Production" class="btn btn-dark">Start a Project <span class="arr">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+<!-- ================= COMPONENT: Footer ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo">
+          <span class="logo-mark">A</span>
+          <span>AMBER<small>Event Production</small></span>
+        </a>
+        <p>PT Amber Event Production — mitra acara Anda. Rasakan perpaduan sempurna antara inovasi, kreativitas, dan keberlanjutan dalam dunia manajemen acara yang terus berkembang.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">What We Do</a></li>
+          <li><a href="#works">Portfolio</a></li>
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get in touch</h4>
+        <ul class="footer-contact">
+          <li><svg viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 10-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Dsn. Krajan RT/RW 003/001, Asrikaton, Pakis, Kab. Malang 65154</li>
+          <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>amber.eventproduction@gmail.com</li>
+          <li><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>0856 8088 959</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year">2026</span> PT Amber Event Production. All Rights Reserved.</span>
+      <span>NIB 2205260068269 &nbsp;•&nbsp; AHU-A090335.AH.01.30.Tahun 2026</span>
+    </div>
+  </div>
+</footer>
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+<button class="to-top" id="toTop" aria-label="Back to top">&uarr;</button>
 
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+<script>
+/* ===== SiteHeader: sticky state ===== */
+const header = document.getElementById('siteHeader');
+const toTop  = document.getElementById('toTop');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+  toTop.classList.toggle('show', window.scrollY > 600);
+}, {passive:true});
+toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+/* ===== Mobile menu ===== */
+const burger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', () => {
+  const open = document.body.classList.toggle('menu-open');
+  burger.setAttribute('aria-expanded', open);
+  mobileMenu.setAttribute('aria-hidden', !open);
+});
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  document.body.classList.remove('menu-open');
+  burger.setAttribute('aria-expanded','false');
+}));
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+/* ===== Hero rotating keywords ===== */
+const words = document.querySelectorAll('#rotator span');
+let wi = 0;
+setInterval(() => {
+  words[wi].classList.remove('active');
+  wi = (wi + 1) % words.length;
+  words[wi].classList.add('active');
+}, 2200);
 
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
-            
-            // Create mailto link
-            const subject = encodeURIComponent(`Inquiry from ${name}`);
-            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`);
-            
-            // Open email client
-            window.location.href = `mailto:amber.eventproduction@gmail.com?subject=${subject}&body=${body}`;
-            
-            // Show success message
-            alert('Terima kasih! Pesan Anda akan dikirim ke email kami. Atau Anda bisa langsung menghubungi kami via WhatsApp.');
-            
-            // Reset form
-            this.reset();
-        });
+/* ===== Scroll reveal ===== */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, {threshold:.15});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-        // Mobile menu toggle (basic implementation)
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            alert('Menu mobile - Untuk navigasi lengkap, silakan scroll ke section yang diinginkan');
-        });
+/* ===== Animated counters ===== */
+const cio = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, target = +el.dataset.target, dur = 1600, t0 = performance.now();
+    const tick = now => {
+      const p = Math.min((now - t0) / dur, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    cio.unobserve(el);
+  });
+}, {threshold:.5});
+document.querySelectorAll('.counter').forEach(el => cio.observe(el));
 
-        // Add current year to footer
-        document.querySelector('.footer-bottom p').innerHTML = `&copy; ${new Date().getFullYear()} PT Amber Event Production. All Rights Reserved.`;
-    </script>
+/* ===== Newsletter (front-end feedback) ===== */
+document.getElementById('newsForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  if (!this.checkValidity()){ this.reportValidity(); return; }
+  document.getElementById('newsSuccess').style.display = 'block';
+  this.reset();
+});
+
+/* ===== Footer year ===== */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
