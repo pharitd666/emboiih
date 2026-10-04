@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AMBER. — Event Production • Indonesia</title>
-<meta name="description" content="Amber Event Production — Kami mengubah ide menjadi pengalaman yang hidup. Panggung, cahaya, suara, dan detail eksekusi untuk corporate event, concert & festival, exhibition, dan brand activation.">
+<meta name="description" content="Amber Event Production — Kami mengubah ide menjadi pengalaman yang hidup. Panggung, cahaya, suara, dan detail eksekusi untuk corporate event, concert & festival, hingga brand activation besar.">
 <meta property="og:title" content="AMBER. — We Light Up The Stage">
 <meta property="og:description" content="Professional Event Production Agency delivering exceptional staging, lighting, sound and event experiences.">
 <meta property="og:image" content="https://amberevent.odoo.com/web/image/986-bc0e69fd/1784999568412.jpg">
@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Amber Event Production","email":"amber.eventroduction@gmail.com","telephone":"+62 856 8088 959","areaServed":"Indonesia","sameAs":["https://www.instagram.com/amber.event.pro"]}
+{"@context":"https://schema.org","@type":"Organization","name":"Amber Event Production","email":"amber.eventroduction@gmail.com","telephone":"+62 856 8088 959","areaServed":"Indonesia","sameAs":["https://www.instagram.com/amber.event.pro?igsh=ZDY1Zmh2bmJjN2R0"]}
 </script>
 <style>
 /* ============ ROOT / RESET ============ */
@@ -86,11 +86,11 @@ h2.h-display{font-size:clamp(2.4rem,5.6vw,4.6rem)}
 
 /* ============ CHROME: NOISE / PROGRESS / CURSOR ============ */
 .noise{position:fixed;inset:-50%;z-index:9000;pointer-events:none;opacity:.045;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctave='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0.1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
   animation:grain 8s steps(10) infinite}
 @keyframes grain{0%,100%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-2%)}80%{transform:translate(3%,3%)}}
 .progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--amber);z-index:9500}
-.cursor{position:fixed;top:0;left:0;width:10px;height:10px;border-radius:50%;background:var(--amber);z-index:9600;pointer-events:none;opacity:0;transition:width .3s,height .3s,opacity .3s,background .3s,border .3s}
+.cursor{position:fixed;top:0;left:0;width:10px;height:10px;border-radius:50%;background:var(--amber);z-index:9600;pointer-events:none;opacity:0;transition:width .3s,height .3s,opacity .3s,background .3s}
 .cursor.grow{width:52px;height:52px;background:transparent;border:1px solid var(--amber)}
 @media (pointer:coarse){.cursor{display:none}}
 
@@ -99,6 +99,7 @@ h2.h-display{font-size:clamp(2.4rem,5.6vw,4.6rem)}
 .site-header.scrolled{background:rgba(11,10,7,.86);backdrop-filter:blur(12px);padding:14px 0;border-bottom-color:var(--line-soft)}
 .nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
 .logo{font-family:var(--font-display);font-size:1.7rem;letter-spacing:.05em;display:flex;align-items:center;gap:2px}
+.logo img{height:34px;width:auto;display:block}
 .logo i{font-style:normal;color:var(--amber)}
 .nav-links{display:flex;gap:34px}
 .nav-links a{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);position:relative;padding:6px 0;transition:color .3s}
@@ -112,9 +113,9 @@ h2.h-display{font-size:clamp(2.4rem,5.6vw,4.6rem)}
 body.nav-open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
 body.nav-open .burger span:nth-child(2){opacity:0}
 body.nav-open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
-.m-menu{position:fixed;inset:0;background:#0B0A07;z-index:8500;display:flex;flex-direction:column;justify-content:center;padding:0 8vw;gap:6px;clip-path:inset(0 0 100% 0);transition:clip-path .7s var(--ease);visibility:hidden}
+.m-menu{position:fixed;inset:0;background:#0B0A07;z-index:8500;display:flex;flex-direction:column;justify-content:center;padding:0 8vw;gap:6px;clip-path:inset(0 0 100% 0);transition:clip-path .7s var(--ease),visibility .7s;visibility:hidden}
 body.nav-open .m-menu{clip-path:inset(0 0 0 0);visibility:visible}
-.m-menu a{font-family:var(--font-display);font-size:clamp(2.4rem,9vw,4.5rem);text-transform:uppercase;line-height:1.15;display:flex;align-items:baseline;gap:18px;opacity:0;transform:translateY(30px);transition:opacity .5s var(--ease),transform .5s var(--ease),color .3s}
+.m-menu a{font-family:var(--font-display);font-size:clamp(2.4rem,9vw,4.5rem);text-transform:uppercase;line-height:1.15;display:flex;align-items:baseline;gap:18px;opacity:0;transform:translateY(30px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .m-menu a small{font-family:var(--font-mono);font-size:.7rem;color:var(--amber);letter-spacing:.2em}
 .m-menu a:hover{color:var(--amber)}
 body.nav-open .m-menu a{opacity:1;transform:none}
@@ -147,7 +148,7 @@ body.loaded .hero h1 .row:nth-child(2) span{transition-delay:.12s}
 .hero-copy{max-width:480px;color:#D8D0C0;font-size:1.02rem;font-weight:300}
 .hero-copy strong{color:var(--ink);font-weight:500}
 .hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
-.btn{position:relative;display:inline-flex;align-items:center;gap:12px;padding:17px 32px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--line);overflow:hidden;transition:color .4s,border-color .4s;isolation:isolate}
+.btn{position:relative;display:inline-flex;align-items:center;gap:12px;padding:17px 32px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--line);color:var(--ink);transition:.35s;z-index:0}
 .btn::before{content:"";position:absolute;inset:0;background:var(--amber);transform:translateY(101%);transition:transform .5s var(--ease);z-index:-1}
 .btn:hover{color:#0B0A07;border-color:var(--amber)}
 .btn:hover::before{transform:translateY(0)}
@@ -156,7 +157,7 @@ body.loaded .hero h1 .row:nth-child(2) span{transition-delay:.12s}
 .btn-solid{background:var(--amber);border-color:var(--amber);color:#0B0A07}
 .btn-solid::before{background:#0B0A07}
 .btn-solid:hover{color:var(--amber)}
-.hero-scroll{position:absolute;right:4vw;bottom:130px;display:flex;flex-direction:column;align-items:center;gap:12px;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.3em;color:var(--muted);writing-mode:vertical-rl}
+.hero-scroll{position:absolute;right:4vw;bottom:130px;display:flex;flex-direction:column;align-items:center;gap:12px;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.3em;color:var(--ink)}
 .hero-scroll i{width:1px;height:56px;background:var(--line);position:relative;overflow:hidden}
 .hero-scroll i::after{content:"";position:absolute;top:-40%;left:0;width:100%;height:40%;background:var(--amber);animation:drip 2s ease-in-out infinite}
 @keyframes drip{to{top:110%}}
@@ -182,7 +183,7 @@ body.loaded .hero h1 .row:nth-child(2) span{transition-delay:.12s}
 .about-img img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:saturate(.92)}
 @media (prefers-reduced-motion:no-preference){.about-img img{animation:kenburns 26s ease-in-out infinite alternate}}
 .about-img::after{content:"";position:absolute;inset:0;border:1px solid var(--line)}
-.about-strip{display:flex;justify-content:space-between;border:1px solid var(--line);border-top:0;padding:14px 20px;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.24em;color:var(--muted);text-transform:uppercase}
+.about-strip{display:flex;justify-content:space-between;border:1px solid var(--line);border-top:0;padding:14px 20px;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.24em;color:var(--ink)}
 .about-strip b{color:var(--amber);font-weight:400}
 .badge-360{position:absolute;top:-58px;right:-38px;width:158px;height:158px;display:grid;place-items:center}
 .badge-360 svg{position:absolute;inset:0;width:100%;height:100%}
@@ -208,7 +209,7 @@ body.loaded .hero h1 .row:nth-child(2) span{transition-delay:.12s}
 .sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:clamp(44px,6vw,70px)}
 .sec-head p{max-width:420px;color:var(--muted);font-weight:300;font-size:.98rem}
 .svc-list{border-top:1px solid var(--line)}
-.svc-row{display:grid;grid-template-columns:90px 1.1fr 1fr 60px;gap:26px;align-items:center;padding:30px 20px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .45s var(--ease),color .45s,padding .45s;position:relative}
+.svc-row{display:grid;grid-template-columns:90px 1.1fr 1fr 60px;gap:26px;align-items:center;padding:30px 20px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .45s var(--ease),padding-left .45s var(--ease),color .45s}
 .svc-row:hover,.svc-row:focus-visible{background:var(--amber);color:#0B0A07;padding-left:34px;outline:none}
 .svc-num{font-family:var(--font-mono);font-size:.8rem;letter-spacing:.15em;color:var(--amber);transition:color .45s}
 .svc-row:hover .svc-num{color:#0B0A07}
@@ -217,7 +218,7 @@ body.loaded .hero h1 .row:nth-child(2) span{transition-delay:.12s}
 .svc-row:hover .svc-desc{color:rgba(11,10,7,.8)}
 .svc-arr{font-size:1.5rem;justify-self:end;transition:transform .45s var(--ease)}
 .svc-row:hover .svc-arr{transform:translateX(8px) rotate(-45deg)}
-.svc-preview{position:fixed;top:0;left:0;width:290px;height:200px;pointer-events:none;z-index:7000;opacity:0;transform:scale(.85);transition:opacity .35s,transform .35s var(--ease);overflow:hidden;border:1px solid var(--amber)}
+.svc-preview{position:fixed;top:0;left:0;width:290px;height:200px;pointer-events:none;z-index:7000;opacity:0;transform:scale(.85);transition:opacity .35s,transform .35s var(--ease);overflow:hidden;border:1px solid var(--line);background:#0B0A07}
 .svc-preview.on{opacity:1}
 .svc-preview img{width:100%;height:100%;object-fit:cover}
 @media (pointer:coarse){.svc-preview{display:none}}
@@ -250,7 +251,7 @@ body.loaded .hero h1 .row:nth-child(2) span{transition-delay:.12s}
 .wc-2 .work-fig img,.wc-3 .work-fig img{aspect-ratio:4/4.4}
 .work-card:hover .work-fig img{transform:scale(1.07);filter:saturate(1.05)}
 .work-fig::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(11,10,7,.75));pointer-events:none}
-.work-tag{position:absolute;top:16px;left:16px;z-index:2;background:rgba(11,10,7,.7);backdrop-filter:blur(6px);border:1px solid var(--line);padding:8px 14px;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.24em;color:var(--amber)}
+.work-tag{position:absolute;top:16px;left:16px;z-index:2;background:rgba(11,10,7,.7);backdrop-filter:blur(6px);border:1px solid var(--line);padding:8px 14px;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase}
 .work-meta{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;border-top:1px solid var(--line-soft)}
 .work-meta h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:clamp(1.15rem,2vw,1.6rem);letter-spacing:.02em}
 .work-go{width:44px;height:44px;border:1px solid var(--line);display:grid;place-items:center;font-size:1.1rem;flex-shrink:0;transition:.4s}
@@ -276,10 +277,10 @@ body.loaded .hero h1 .row:nth-child(2) span{transition-delay:.12s}
 
 /* ============ CONTACT ============ */
 #contact{overflow:hidden}
-.contact-watermark{position:absolute;top:8%;left:50%;transform:translateX(-50%);font-family:var(--font-display);font-size:clamp(8rem,26vw,24rem);color:transparent;-webkit-text-stroke:1px rgba(243,237,226,.06);pointer-events:none;user-select:none;white-space:nowrap;z-index:0}
+.contact-watermark{position:absolute;top:8%;left:50%;transform:translateX(-50%);font-family:var(--font-display);font-size:clamp(8rem,26vw,24rem);color:transparent;-webkit-text-stroke:1px rgba(243,237,226,.12);line-height:1;pointer-events:none;user-select:none}
 .contact-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(44px,6vw,90px);align-items:start}
 .contact-left h2{font-size:clamp(2.6rem,6.4vw,5.6rem);margin-bottom:40px}
-.mail-cta{display:inline-flex;align-items:center;gap:18px;font-family:var(--font-mono);font-size:clamp(.85rem,1.8vw,1.15rem);letter-spacing:.08em;color:var(--amber);position:relative;padding-bottom:10px;word-break:break-all}
+.mail-cta{display:inline-flex;align-items:center;gap:18px;font-family:var(--font-mono);font-size:clamp(.85rem,1.8vw,1.15rem);letter-spacing:.08em;color:var(--amber);position:relative;padding-bottom:10px}
 .mail-cta::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--amber);transform:scaleX(.25);transform-origin:left;transition:transform .6s var(--ease)}
 .mail-cta:hover::after{transform:scaleX(1)}
 .mail-cta .arr{transition:transform .4s var(--ease)}
@@ -340,7 +341,7 @@ footer{border-top:1px solid var(--line);background:#080705}
 <!-- HEADER -->
 <header class="site-header" id="siteHeader">
   <div class="container nav-wrap">
-    <a href="#top" class="logo" aria-label="Amber Event Production — home">AMBER<i>.</i></a>
+    <a href="#top" class="logo" aria-label="Amber Event Production — home"><img src="Logo.JPG" alt="Amber Event Production Logo"></a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#about">About</a>
       <a href="#services">Services</a>
@@ -369,7 +370,7 @@ footer{border-top:1px solid var(--line);background:#080705}
   <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="hero-bg">
-      <img src="https://amberevent.odoo.com/web/image/960-90a49542/IMG_20260730_145447.webp" alt="Panggung Amber Event Production" fetchpriority="high">
+      <img src="Hero.jpg" alt="Panggung Amber Event Production" fetchpriority="high">
     </div>
     <div class="container hero-inner">
       <p class="hero-tag" data-scramble data-text="EVENT PRODUCTION • INDONESIA">EVENT PRODUCTION • INDONESIA</p>
@@ -379,7 +380,7 @@ footer{border-top:1px solid var(--line);background:#080705}
       </h1>
       <div class="hero-foot">
         <p class="hero-copy" data-reveal style="--d:.4s">
-          Kami mengubah ide menjadi <strong>pengalaman yang hidup</strong>. Dari panggung, cahaya, suara, hingga detail eksekusi, Amber Event Production hadir untuk menciptakan momen yang tidak hanya terlihat — <strong>tetapi terasa</strong>.
+          Kami mengubah ide menjadi <strong>pengalaman yang hidup</strong>. Dari panggung, cahaya, suara, hingga detail eksekusi, Amber Event Production hadir untuk menciptakan momen yang tidak terlupakan.
         </p>
         <div class="hero-ctas" data-reveal style="--d:.55s">
           <a href="#work" class="btn btn-solid">Explore Our Work <span class="arr">→</span></a>
@@ -394,10 +395,10 @@ footer{border-top:1px solid var(--line);background:#080705}
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
       <div class="ticker-group">
-        <span>Corporate Events</span><i>✦</i><span>Concert &amp; Festival</span><i>✦</i><span>Brand Activation</span><i>✦</i><span>Exhibition</span><i>✦</i><span>Stage Production</span><i>✦</i><span>Lighting</span><i>✦</i><span>Sound System</span><i>✦</i>
+        <span>Corporate Events</span><i>✦</i><span>Concert &amp; Festival</span><i>✦</i><span>Brand Activation</span><i>✦</i><span>Exhibition</span><i>✦</i><span>Stage Production</span><i>✦</i>
       </div>
       <div class="ticker-group">
-        <span>Corporate Events</span><i>✦</i><span>Concert &amp; Festival</span><i>✦</i><span>Brand Activation</span><i>✦</i><span>Exhibition</span><i>✦</i><span>Stage Production</span><i>✦</i><span>Lighting</span><i>✦</i><span>Sound System</span><i>✦</i>
+        <span>Corporate Events</span><i>✦</i><span>Concert &amp; Festival</span><i>✦</i><span>Brand Activation</span><i>✦</i><span>Exhibition</span><i>✦</i><span>Stage Production</span><i>✦</i>
       </div>
     </div>
   </div>
@@ -407,7 +408,7 @@ footer{border-top:1px solid var(--line);background:#080705}
     <div class="container about-grid">
       <div class="about-visual" data-reveal>
         <div class="about-img">
-          <img src="https://amberevent.odoo.com/web/image/960-90a49542/IMG_20260730_145447.webp" alt="360° Event Production oleh Amber" loading="lazy">
+          <img src="360.png" alt="360° Event Production oleh Amber" loading="lazy">
           <div class="badge-360">
             <svg viewBox="0 0 158 158" aria-hidden="true">
               <defs><path id="circ" d="M79,79 m-64,0 a64,64 0 1,1 128,0 a64,64 0 1,1 -128,0"/></defs>
@@ -427,7 +428,7 @@ footer{border-top:1px solid var(--line);background:#080705}
           <span class="ln"><span style="--d:.35s" class="amb">Pengalaman.</span></span>
         </h2>
         <p data-reveal style="--d:.2s">Setiap event memiliki cerita. Tugas kami adalah membuat cerita tersebut hadir secara nyata.</p>
-        <p data-reveal style="--d:.3s">Dengan pendekatan <strong>kreatif, teknis, dan terukur</strong>, Amber Event Production menggabungkan konsep, tata panggung, tata cahaya, tata suara, produksi, serta manajemen lapangan menjadi <strong>satu pengalaman yang utuh</strong>.</p>
+        <p data-reveal style="--d:.3s">Dengan pendekatan <strong>kreatif, teknis, dan terukur</strong>, Amber Event Production menggabungkan konsep, tata panggung, tata cahaya, tata suara, dan pengalaman audiens untuk tiap event.</p>
         <div class="pillars" data-reveal style="--d:.4s">
           <div class="pillar"><b>Kreatif</b><p>Konsep yang tajam, original, dan berkarakter untuk setiap brand.</p></div>
           <div class="pillar"><b>Teknis</b><p>Standar produksi profesional — panggung, rigging, cahaya &amp; suara.</p></div>
@@ -583,31 +584,31 @@ footer{border-top:1px solid var(--line);background:#080705}
       <div class="leader-grid">
         <article class="leader" data-reveal>
           <div class="leader-photo">
-            <img src="https://amberevent.odoo.com/web/image/940-d5ee056f/Pi7_Tool_IMG_20230225_144650.webp" alt="Ahmad FS — Founder" loading="lazy">
+            <img src="Ahmad.png" alt="Ahmad — Founder" loading="lazy">
             <span class="leader-role">Founder</span>
           </div>
           <div class="leader-info">
-            <h3>Ahmad FS</h3>
+            <h3>Ahmad</h3>
             <blockquote class="leader-quote">Good things take time.</blockquote>
           </div>
         </article>
         <article class="leader" data-reveal style="--d:.14s">
           <div class="leader-photo">
-            <img src="https://amberevent.odoo.com/web/image/987-0df920db/Pi7_Tool_IMG-20260710-WA0015%20%282%29.webp" alt="Saifudin Soleh — Operations Director" loading="lazy">
+            <img src="Saifudin.jpg" alt="Saifudin S — Operations Director" loading="lazy">
             <span class="leader-role">Operations Director</span>
           </div>
           <div class="leader-info">
-            <h3>Saifudin Soleh</h3>
+            <h3>Saifudin S</h3>
             <blockquote class="leader-quote">Everything will be okay.</blockquote>
           </div>
         </article>
         <article class="leader" data-reveal style="--d:.28s">
           <div class="leader-photo">
-            <img src="https://amberevent.odoo.com/web/image/945-d508d30e/Pi7_Tool_IMG-20260712-WA0022%20%281%29.webp" alt="Reiza J. Putra — Technical Director" loading="lazy">
+            <img src="Reiza.jpg" alt="Reiza JP — Technical Director" loading="lazy">
             <span class="leader-role">Technical Director</span>
           </div>
           <div class="leader-info">
-            <h3>Reiza J. Putra</h3>
+            <h3>Reiza JP</h3>
             <blockquote class="leader-quote">I'm not so poetic, I'm not ISO, I play pearls of wisdom, it's nice to have a satset watwet.</blockquote>
           </div>
         </article>
@@ -672,7 +673,7 @@ footer{border-top:1px solid var(--line);background:#080705}
   <div class="container">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a href="#top" class="logo">AMBER<i>.</i></a>
+        <a href="#top" class="logo"><img src="Logo.JPG" alt="Amber Event Production Logo"></a>
         <p>Professional Event Production Agency delivering exceptional staging, lighting, sound and event experiences.</p>
       </div>
       <div class="foot-col">
